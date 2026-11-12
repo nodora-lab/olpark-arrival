@@ -121,3 +121,4 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
 .quick button small { display: block; font-size: 14px; color: var(--ink-2); font-weight: 500; }
 .time-big.neutral { color: var(--ink-2); font-size: 32px; }
 #r-why { font-size: 14px; }
+.quick[hidden], .key[hidden], [hidden] { display: none !important; }
