@@ -1,0 +1,9 @@
+data/raw/
+__pycache__/
+*.pyc
+data/build_log.txt
+data/byday.txt
+data/arrival_table.txt
+data/rule_log.txt
+data/rule_detail.txt
+data/monthly_check.txt

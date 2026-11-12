@@ -1,0 +1,5 @@
+{'window_from': 180, 'mean': 0.57, 'better_days_vs_hour': 8, 'days': 9}
+{'window_from': 150, 'mean': 0.62, 'better_days_vs_hour': 7, 'days': 9}
+{'window_from': 120, 'mean': 0.73, 'better_days_vs_hour': 6, 'days': 9}
+{'window_from': 90, 'mean': 0.78, 'better_days_vs_hour': 7, 'days': 9}
+{'window_from': 60, 'mean': 0.91, 'better_days_vs_hour': 0, 'days': 9}

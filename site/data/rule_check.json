@@ -1,0 +1,408 @@
+{
+ "rule": {
+  "3시간 전까지": {
+   "window_from_mode": 150,
+   "chosen_mean": 0.63,
+   "hour_before_mean": 0.91,
+   "better_days": 8,
+   "days": 9,
+   "worst": {
+    "date": "2024-07-28",
+    "window_from": 180,
+    "chosen": 1.0,
+    "hour_before": 0.86,
+    "better": false
+   }
+  },
+  "2시간 30분 전까지": {
+   "window_from_mode": 150,
+   "chosen_mean": 0.62,
+   "hour_before_mean": 0.91,
+   "better_days": 7,
+   "days": 9,
+   "worst": {
+    "date": "2024-07-27",
+    "window_from": 150,
+    "chosen": 0.77,
+    "hour_before": 0.69,
+    "better": false
+   }
+  },
+  "2시간 전까지": {
+   "window_from_mode": 120,
+   "chosen_mean": 0.78,
+   "hour_before_mean": 0.91,
+   "better_days": 6,
+   "days": 9,
+   "worst": {
+    "date": "2024-07-27",
+    "window_from": 120,
+    "chosen": 0.95,
+    "hour_before": 0.69,
+    "better": false
+   }
+  },
+  "1시간 30분 전까지": {
+   "window_from_mode": 90,
+   "chosen_mean": 0.78,
+   "hour_before_mean": 0.91,
+   "better_days": 7,
+   "days": 9,
+   "worst": {
+    "date": "2024-07-27",
+    "window_from": 90,
+    "chosen": 0.89,
+    "hour_before": 0.69,
+    "better": false
+   }
+  }
+ },
+ "simple_rules": {
+  "3시간 전부터 30분": {
+   "window_from": 180,
+   "mean": 0.57,
+   "better_days_vs_hour": 8,
+   "days": 9
+  },
+  "2시간 30분 전부터 30분": {
+   "window_from": 150,
+   "mean": 0.62,
+   "better_days_vs_hour": 7,
+   "days": 9
+  },
+  "2시간 전부터 30분": {
+   "window_from": 120,
+   "mean": 0.73,
+   "better_days_vs_hour": 6,
+   "days": 9
+  },
+  "1시간 30분 전부터 30분": {
+   "window_from": 90,
+   "mean": 0.78,
+   "better_days_vs_hour": 7,
+   "days": 9
+  },
+  "1시간 전부터 30분": {
+   "window_from": 60,
+   "mean": 0.91,
+   "better_days_vs_hour": 0,
+   "days": 9
+  }
+ },
+ "rule_detail": {
+  "3시간 전까지": [
+   {
+    "date": "2024-07-06",
+    "window_from": 180,
+    "chosen": 0.79,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-07",
+    "window_from": 180,
+    "chosen": 0.74,
+    "hour_before": 0.79,
+    "better": true
+   },
+   {
+    "date": "2024-07-12",
+    "window_from": 150,
+    "chosen": 0.61,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-13",
+    "window_from": 150,
+    "chosen": 0.53,
+    "hour_before": 0.91,
+    "better": true
+   },
+   {
+    "date": "2024-07-14",
+    "window_from": 150,
+    "chosen": 0.46,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-20",
+    "window_from": 150,
+    "chosen": 0.39,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-21",
+    "window_from": 150,
+    "chosen": 0.48,
+    "hour_before": 0.93,
+    "better": true
+   },
+   {
+    "date": "2024-07-27",
+    "window_from": 180,
+    "chosen": 0.63,
+    "hour_before": 0.69,
+    "better": true
+   },
+   {
+    "date": "2024-07-28",
+    "window_from": 180,
+    "chosen": 1.0,
+    "hour_before": 0.86,
+    "better": false
+   }
+  ],
+  "2시간 30분 전까지": [
+   {
+    "date": "2024-07-06",
+    "window_from": 150,
+    "chosen": 0.83,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-07",
+    "window_from": 150,
+    "chosen": 0.58,
+    "hour_before": 0.79,
+    "better": true
+   },
+   {
+    "date": "2024-07-12",
+    "window_from": 150,
+    "chosen": 0.61,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-13",
+    "window_from": 150,
+    "chosen": 0.53,
+    "hour_before": 0.91,
+    "better": true
+   },
+   {
+    "date": "2024-07-14",
+    "window_from": 150,
+    "chosen": 0.46,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-20",
+    "window_from": 150,
+    "chosen": 0.39,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-21",
+    "window_from": 150,
+    "chosen": 0.48,
+    "hour_before": 0.93,
+    "better": true
+   },
+   {
+    "date": "2024-07-27",
+    "window_from": 150,
+    "chosen": 0.77,
+    "hour_before": 0.69,
+    "better": false
+   },
+   {
+    "date": "2024-07-28",
+    "window_from": 150,
+    "chosen": 0.92,
+    "hour_before": 0.86,
+    "better": false
+   }
+  ],
+  "2시간 전까지": [
+   {
+    "date": "2024-07-06",
+    "window_from": 120,
+    "chosen": 0.63,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-07",
+    "window_from": 120,
+    "chosen": 1.0,
+    "hour_before": 0.79,
+    "better": false
+   },
+   {
+    "date": "2024-07-12",
+    "window_from": 90,
+    "chosen": 0.83,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-13",
+    "window_from": 90,
+    "chosen": 0.8,
+    "hour_before": 0.91,
+    "better": true
+   },
+   {
+    "date": "2024-07-14",
+    "window_from": 90,
+    "chosen": 0.7,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-20",
+    "window_from": 120,
+    "chosen": 0.57,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-21",
+    "window_from": 120,
+    "chosen": 0.52,
+    "hour_before": 0.93,
+    "better": true
+   },
+   {
+    "date": "2024-07-27",
+    "window_from": 120,
+    "chosen": 0.95,
+    "hour_before": 0.69,
+    "better": false
+   },
+   {
+    "date": "2024-07-28",
+    "window_from": 120,
+    "chosen": 1.0,
+    "hour_before": 0.86,
+    "better": false
+   }
+  ],
+  "1시간 30분 전까지": [
+   {
+    "date": "2024-07-06",
+    "window_from": 90,
+    "chosen": 0.68,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-07",
+    "window_from": 90,
+    "chosen": 0.71,
+    "hour_before": 0.79,
+    "better": true
+   },
+   {
+    "date": "2024-07-12",
+    "window_from": 90,
+    "chosen": 0.83,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-13",
+    "window_from": 90,
+    "chosen": 0.8,
+    "hour_before": 0.91,
+    "better": true
+   },
+   {
+    "date": "2024-07-14",
+    "window_from": 90,
+    "chosen": 0.7,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-20",
+    "window_from": 90,
+    "chosen": 0.78,
+    "hour_before": 1.0,
+    "better": true
+   },
+   {
+    "date": "2024-07-21",
+    "window_from": 90,
+    "chosen": 0.64,
+    "hour_before": 0.93,
+    "better": true
+   },
+   {
+    "date": "2024-07-27",
+    "window_from": 90,
+    "chosen": 0.89,
+    "hour_before": 0.69,
+    "better": false
+   },
+   {
+    "date": "2024-07-28",
+    "window_from": 90,
+    "chosen": 0.95,
+    "hour_before": 0.86,
+    "better": false
+   }
+  ]
+ },
+ "threshold_sensitivity": {
+  "10": {
+   "spearman_vs_15": 0.98,
+   "hour_before": 0.91,
+   "two_half_before": 0.58
+  },
+  "15": {
+   "spearman_vs_15": 1.0,
+   "hour_before": 0.93,
+   "two_half_before": 0.58
+  },
+  "20": {
+   "spearman_vs_15": 1.0,
+   "hour_before": 0.93,
+   "two_half_before": 0.62
+  },
+  "30": {
+   "spearman_vs_15": 0.95,
+   "hour_before": 0.93,
+   "two_half_before": 0.64
+  }
+ },
+ "single_show_days": {
+  "days": [
+   "2024-07-07",
+   "2024-07-12",
+   "2024-07-27",
+   "2024-07-28"
+  ],
+  "spearman_vs_all": 0.76,
+  "hour_before": 0.82,
+  "two_half_before": 0.69
+ },
+ "groups": {
+  "CHA EUN-WOO 2024 Just One 10 Minute ［Mystery Elevator］ Encore in Seoul": [
+   "2024-07-06"
+  ],
+  "10CM 1st Fan Concert 〈10CM YOU〉": [
+   "2024-07-07"
+  ],
+  "THE BOYZ WORLD TOUR : ZENERATION Ⅱ": [
+   "2024-07-12",
+   "2024-07-13",
+   "2024-07-14"
+  ],
+  "SG워너비 콘서트 : 우리의 노래 2024 앙코르": [
+   "2024-07-20",
+   "2024-07-21"
+  ],
+  "2024 BAEKHYUN ASIA TOUR ‘Lonsdaleite［dot］’": [
+   "2024-07-27",
+   "2024-07-28"
+  ]
+ }
+}
