@@ -58,14 +58,17 @@
     var today = new Date(); today.setHours(0, 0, 0, 0);
     var list = EVENTS.filter(function (e) { return new Date(e.date + "T00:00:00") >= today; })
       .sort(function (a, b) { return (a.date + (a.start || "")).localeCompare(b.date + (b.start || "")); });
-    var shown = 0;
+    var shown = 0, lastDate = "";
     list.forEach(function (e, i) {
+      if (e.date !== lastDate) {
+        var hd = el("p", "dhead", dateLabel(e.date)); if (i >= 8) hd.hidden = true;
+        box.appendChild(hd); lastDate = e.date;
+      }
       var b = el("button", "ev");
       b.type = "button";
       b.setAttribute("role", "listitem");
-      b.appendChild(el("span", "d", dateLabel(e.date)));
+      b.appendChild(el("span", "d", e.venue));
       b.appendChild(el("span", "s", e.start || "시각 확인"));
-      b.appendChild(el("span", "v", e.venue));
       b.appendChild(el("span", "t", e.title));
       if (i >= 8) b.hidden = true;
       b.addEventListener("click", function () { pick(e); });
@@ -77,7 +80,7 @@
       var more = el("button", "btn ghost more", "공연 더 보기 (" + (list.length - 8) + "개)");
       more.type = "button";
       more.addEventListener("click", function () {
-        Array.prototype.forEach.call(box.querySelectorAll(".ev[hidden]"), function (x) { x.hidden = false; });
+        Array.prototype.forEach.call(box.querySelectorAll(".ev[hidden], .dhead[hidden]"), function (x) { x.hidden = false; });
         more.remove();
       });
       box.appendChild(more);
@@ -90,7 +93,7 @@
       if (!t || !/^\d{1,2}:\d{2}$/.test(t)) return;
       e = Object.assign({}, e, { start: t });
     }
-    state.ev = e;
+    state.ev = e; state.sel = null;
     $("chosen").textContent = dateLabel(e.date) + " " + e.start + " · " + e.venue + " · " + e.title;
     $("step-group").hidden = false;
     $("step-group").scrollIntoView({ behavior: "smooth", block: "start" });
@@ -106,12 +109,12 @@
     });
     document.querySelectorAll("[data-limit]").forEach(function (b) {
       b.addEventListener("click", function () {
-        state.limit = +b.dataset.limit;
+        state.limit = +b.dataset.limit; state.sel = null;
         document.querySelectorAll("[data-limit]").forEach(function (x) { x.setAttribute("aria-pressed", x === b ? "true" : "false"); });
       });
     });
     $("slow").addEventListener("change", function () { state.slow = this.checked; });
-    $("show").addEventListener("click", showResult);
+    $("show").addEventListener("click", function () { showResult(false); });
     $("again").addEventListener("click", function () {
       $("step-result").hidden = true; $("step-group").hidden = true;
       $("step-pick").scrollIntoView({ behavior: "smooth" });
@@ -122,6 +125,7 @@
       pick({ date: d, venue: $("m-venue").value, title: "직접 넣은 공연", start: t });
     });
     $("copy").addEventListener("click", copyText);
+    $("to-manual").addEventListener("click", function () { $("manual").open = true; $("manual").scrollIntoView({ behavior: "smooth", block: "center" }); });
     $("live-refresh").addEventListener("click", loadLive);
   }
 
@@ -138,49 +142,75 @@
     return M.arrival_table.slice().sort(function (a, b) { return b[metric].median - a[metric].median; })[0];
   }
 
-  var last = null;
-  function showResult() {
-    var e = state.ev, metric = metricFor(state.mode);
-    var s = toMin(e.start), shift = state.slow ? 20 : 0;
-    var c = choose(metric, state.limit), bz = busiest(metric);
-    var w0 = s - c.from_min - shift, w1 = s - c.to_min - shift;
-    $("r-window").textContent = fmt(w0) + " - " + fmt(w1);
-    var what = metric === "dropoff" ? "잠깐 들렀다 나간 차(15분 이하: 내려 주기·태우기 등)" : "공원에 들어온 차";
-    $("r-why").textContent = "공연 시작까지 남은 시간 " + korDur(c.to_min + shift) + "-" + korDur(c.from_min + shift) + ". 과거 공연 날 이 30분에 " + what +
-      "는 그날 공연 전 가장 많았던 30분 대비 " + pct(c[metric].median) + "였어요 (공연 9일 중앙값, 가운데 절반 " + pct(c[metric].p25) + "-" + pct(c[metric].p75) + ")." +
-      "";
-    var lat = [30, 60].map(function (k) { return rowAt(c.from_min - k); }).filter(Boolean);
-    $("r-later").textContent = lat.length ? "더 늦게 오면: " + lat.map(function (x) { return korDur(c.from_min - x.from_min) + " 늦게 " + pct(x[metric].median); }).join(", ") + " (시작 1시간 전 " + pct(rowAt(60)[metric].median) + ")" : "";
-    var others = EVENTS.filter(function (x) { return x.date === e.date && x.venue !== e.venue; }).map(function (x) { return x.venue + " " + (x.start || ""); });
-    var notes = [];
-    if (others.length) notes.push("같은 날 다른 공연장 공연도 있어요(" + others.join(", ") + "). 공원 전체 기준 참고값이라 더 붐빌 수 있어요.");
-    if (["KSPO DOME", "핸드볼경기장", "올림픽홀"].indexOf(e.venue) < 0) notes.push("이 공연장은 분석에 쓴 큰 공연장(KSPO DOME·핸드볼경기장·올림픽홀)이 아니라, 같은 시간 기준이 맞는지 확인되지 않았어요.");
-    $("r-multi").hidden = !notes.length;
-    $("r-multi").textContent = notes.join(" ");
-    if (state.mode === "transit") {
-      $("r-window").textContent = "출구에서 모이기";
-      $("r-why").textContent = "지하철역·보행 혼잡은 공개 자료가 없어 시간을 권하지 않아요. 모이는 출구: 5·9호선 올림픽공원역 3·4번 출구. 아래 막대는 공원에 들어온 차 기준 참고예요.";
-      $("r-later").textContent = "";
-    }
-    $("r-avoid").textContent = fmt(s - bz.from_min) + " - " + fmt(s - bz.to_min);
-    $("r-avoid-why").textContent = "공연 시작 " + korDur(bz.from_min) + " 전부터 30분. 과거 공연 9일의 중앙값이 가장 높았던 구간으로, 각 날 가장 많았던 30분 대비 " + pct(bz[metric].median) + "예요.";
-    last = { e: e, w0: w0, w1: w1, b0: s - bz.from_min, b1: s - bz.to_min, metric: metric, lead: c.from_min + shift };
-
-    renderChart(s, metric, c);
-    renderInfo(e);
-    renderBasis(metric);
-    $("step-result").hidden = false;
-    $("step-result").scrollIntoView({ behavior: "smooth", block: "start" });
-    loadLive();
+  var MAJOR = ["KSPO DOME", "핸드볼경기장", "올림픽홀"];
+  // 분석 기준 = 그날 가장 큰 공연장(KSPO DOME → 핸드볼경기장 → 올림픽홀)의 가장 이른 회차
+  function applicable(e) {
+    if (MAJOR.indexOf(e.venue) < 0) return false;
+    var c = EVENTS.filter(function (x) { return x.date === e.date && x.start && MAJOR.indexOf(x.venue) >= 0; });
+    if (!c.some(function (x) { return x.venue === e.venue && x.start === e.start; })) c.push(e);
+    c.sort(function (a, b) { return (MAJOR.indexOf(a.venue) - MAJOR.indexOf(b.venue)) || a.start.localeCompare(b.start); });
+    return c[0].venue === e.venue && c[0].start === e.start;
   }
 
-  function renderChart(s, metric, chosen) {
+  var last = null;
+  function showResult(keepSel) {
+    var e = state.ev, metric = metricFor(state.mode);
+    var s = toMin(e.start), shift = state.slow ? 20 : 0;
+    var ok = applicable(e) && state.mode !== "transit";
+    if (!keepSel || state.sel == null) state.sel = state.limit;
+    var c = rowAt(state.sel), bz = busiest(metric);
+    var w0 = s - c.from_min - shift, w1 = s - c.to_min - shift;
+    var what = metric === "dropoff" ? "잠깐 들렀다 나간 차(15분 이하: 내려 주기·태우기·돌아 나가기 등, 공원 전체)" : "공원에 들어온 차(공원 전체)";
+    $("avoid-box").hidden = !ok;
+    $("r-multi").hidden = true;
+    if (ok) {
+      $("r-label").textContent = state.sel === state.limit ? "첫 도착 비교안 (가장 일찍 올 수 있는 때부터 30분)" : "고르신 30분";
+      $("r-window").textContent = fmt(w0) + " - " + fmt(w1);
+      $("r-why").textContent = "공연 시작까지 남은 시간 " + korDur(c.to_min + shift) + "-" + korDur(c.from_min + shift) + ". 과거 공연 날 이 30분의 " + what +
+        "는 그날 가장 몰린 30분 대비 " + pct(c[metric].median) + "였어요(9일 중앙값, 가운데 절반 " + pct(c[metric].p25) + "-" + pct(c[metric].p75) + "). 대기 시간이나 주차 성공 확률이 아니에요." +
+        (c.from_min < 60 ? " 시작 1시간 안 도착은 입장 줄·화장실 여유가 적어요." : "");
+      var lat = [30, 60].map(function (k) { return rowAt(c.from_min - k); }).filter(Boolean);
+      $("r-later").textContent = lat.length ? "더 늦게 오면: " + lat.map(function (x) { return korDur(c.from_min - x.from_min) + " 늦게 " + pct(x[metric].median); }).join(", ") + ". 아래 막대를 눌러 다른 30분으로 바꿔 보세요." : "아래 막대를 눌러 다른 30분으로 바꿔 보세요.";
+      var others = EVENTS.filter(function (x) { return x.date === e.date && !(x.venue === e.venue && x.start === e.start); }).map(function (x) { return x.venue + " " + (x.start || ""); });
+      if (others.length) { $("r-multi").hidden = false; $("r-multi").textContent = "같은 날 다른 공연도 있어요(" + others.join(", ") + "). 공원 전체 기준 참고값이라 더 붐빌 수 있어요."; }
+      $("r-avoid").textContent = fmt(s - bz.from_min) + " - " + fmt(s - bz.to_min);
+      $("r-avoid-why").textContent = "공연 시작 " + korDur(bz.from_min) + " 전부터 30분. 9일 중앙값이 가장 높았던 구간(" + pct(bz[metric].median) + ")이에요.";
+    } else {
+      $("r-later").textContent = "";
+      if (state.mode === "transit") {
+        $("r-label").textContent = "지하철·버스로 오실 때";
+        $("r-window").textContent = "출구에서 모이기";
+        $("r-why").textContent = "지하철역·보행 혼잡은 공개 자료가 없어 시간을 권하지 않아요. 모이는 출구: 5·9호선 올림픽공원역 3·4번 출구. 아래 막대는 공원 차량 기준 참고예요.";
+      } else {
+        $("r-label").textContent = "이 공연은 시간 비교안이 없어요";
+        $("r-window").textContent = "참고 자료만";
+        $("r-why").textContent = "분석 기준은 그날 가장 큰 공연장(KSPO DOME → 핸드볼경기장 → 올림픽홀)의 가장 이른 회차예요. 이 공연은 거기에 해당하지 않아 시간을 권하지 않고, 아래 공원 전체 과거 참고 범위와 교통 안내만 보여 드려요.";
+      }
+    }
+    last = { e: e, ok: ok, w0: w0, w1: w1, b0: s - bz.from_min, b1: s - bz.to_min, metric: metric, lead: c.from_min + shift };
+    renderChart(s, metric, ok ? c : null, ok);
+    renderInfo(e);
+    renderBasis(metric);
+    if (!keepSel) {
+      $("step-result").hidden = false;
+      $("step-result").scrollIntoView({ behavior: "smooth", block: "start" });
+      loadLive();
+    }
+  }
+
+  function renderChart(s, metric, chosen, ok) {
     var box = $("chart"); box.innerHTML = "";
     $("chart-note").textContent = (metric === "dropoff" ? "15분 안에 나간 차(내려 주기·태우기·돌아 나가기 등)" : "공원 주차장에 들어온 모든 차") +
       " 기준. 2024년 7월 공연 날 " + M.concert_days.length + "일을 공연 시작 시각에 맞춰 겹쳐, 공연 전 가장 많았던 30분 대비 %로 나타냈어요. 대기 시간·도로 정체를 잰 값은 아니에요.";
     M.arrival_table.forEach(function (r) {
       var v = r[metric];
-      var row = el("div", "row" + (r === chosen ? " pick" : ""));
+      var row = el("div", "row" + (r === chosen ? " pick" : "") + (ok ? "" : " off"));
+      if (ok) {
+        row.tabIndex = 0; row.setAttribute("role", "button");
+        var go = function () { state.sel = r.from_min; showResult(true); $("step-result").scrollIntoView({ behavior: "smooth", block: "start" }); };
+        row.addEventListener("click", go);
+        row.addEventListener("keydown", function (ev) { if (ev.key === "Enter" || ev.key === " ") { ev.preventDefault(); go(); } });
+      }
       var tl = el("div", "tl", fmt(s - r.from_min));
       tl.appendChild(el("small", null, "시작 " + korDur(r.from_min) + " 전"));
       var bar = el("div", "bar");
@@ -265,16 +295,17 @@
     var e = last.e;
     var how = state.mode === "bus" ? "버스 내려서 모이는 시간" : state.mode === "car" ? "주차장 도착" : "공원 도착";
     var v = V.venues[e.venue];
-    var lines = [
-      "[" + dateLabel(e.date) + " " + e.title + "]",
-      "공연장: " + e.venue + " (시작 " + e.start + ")",
-      (state.mode === "transit" ? "모이는 출구: 5·9호선 올림픽공원역 3·4번 출구" : how + ": " + fmt(last.w0) + "-" + fmt(last.w1) + " (공연 시작 " + korDur(last.lead) + " 전)"),
-      "가장 붐비는 때: " + fmt(last.b0) + "-" + fmt(last.b1) + " (피해 주세요)"
-    ];
+    var lines = ["[" + dateLabel(e.date) + " " + e.title + "]", "공연장: " + e.venue + " (시작 " + e.start + ")"];
+    if (last.ok) {
+      lines.push(how + ": " + fmt(last.w0) + "-" + fmt(last.w1) + " (공연 시작 " + korDur(last.lead) + " 전, 인솔자가 고른 시간)");
+      lines.push("과거에 가장 몰린 30분: " + fmt(last.b0) + "-" + fmt(last.b1));
+    } else if (state.mode === "transit") {
+      lines.push("모이는 출구: 5·9호선 올림픽공원역 3·4번 출구");
+    }
     lines.push("모이는 곳: ________ (인솔자가 적어 주세요)");
     if (v) lines.push("가까운 문: " + v.gates.join("·"));
     if (state.mode === "car") lines.push("지하철: 5·9호선 올림픽공원역 3·4번 출구");
-    lines.push("(2024년 7월 공연 날 차량 기록으로 본 참고 범위예요)");
+    lines.push("(2024년 7월 공연 날 공원 전체 차량 기록으로 본 참고예요)");
     var text = lines.join("\n");
     var done = function () { $("copied").textContent = "복사했어요. 단체방에 붙여 넣으세요."; };
     if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(done, function () { fallback(text); done(); });
