@@ -109,3 +109,8 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
 .livebox summary h2 { display: inline; font-size: 18px; color: var(--ink-2); }
 .later { margin-top: 8px; color: var(--ink); font-weight: 500; }
 .notice.small { margin-top: 10px; }
+.find { width: 100%; margin-bottom: 12px; }
+.dhead { font-size: 16px; font-weight: 700; color: var(--ink-2); margin: 10px 0 2px; }
+.row { cursor: pointer; border-radius: 8px; }
+.row:focus-visible { outline: 3px solid var(--focus); }
+.row.off { cursor: default; }

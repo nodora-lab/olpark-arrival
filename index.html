@@ -22,8 +22,9 @@
   <!-- 1. 공연 고르기 -->
   <section id="step-pick" class="card">
     <h2><span class="num">1</span> 가실 공연을 고르세요</h2>
+    <button class="btn ghost find" id="to-manual" type="button">찾는 공연이 없어요 · 직접 넣기</button>
     <div id="event-list" class="event-list" role="list"></div>
-    <details class="manual">
+    <details class="manual" id="manual">
       <summary>목록에 없으면 직접 넣기</summary>
       <div class="manual-grid">
         <label>날짜<input type="date" id="m-date"></label>
@@ -63,13 +64,13 @@
   <!-- 3. 결과 -->
   <section id="step-result" hidden>
     <div class="card result-main">
-      <p class="label">권장 도착</p>
+      <p class="label" id="r-label">첫 도착 비교안</p>
       <p class="time-big" id="r-window"></p>
       <p class="sub" id="r-why"></p>
       <p class="sub later" id="r-later"></p>
       <p class="notice small" id="r-multi" hidden></p>
-      <div class="avoid">
-        <p class="label">차가 가장 많이 몰린 때 (피하세요)</p>
+      <div class="avoid" id="avoid-box">
+        <p class="label">과거 공연 날 가장 몰린 30분</p>
         <p class="time-mid" id="r-avoid"></p>
         <p class="sub" id="r-avoid-why"></p>
       </div>
@@ -82,6 +83,7 @@
       <p class="sub" id="chart-note"></p>
       <div id="chart" class="chart"></div>
       <p class="legend"><span class="sw calm"></span>적음 <span class="sw mid"></span>보통 <span class="sw busy"></span>많음 <span class="sw rng"></span>공연일 가운데 절반 범위</p>
+      <p class="legend">% = 각 공연 날 가장 몰린 30분 대비 · 대기 시간이 아니에요 · 막대를 누르면 그 30분으로 바꿔 볼 수 있어요</p>
     </div>
 
     <details class="card livebox">
