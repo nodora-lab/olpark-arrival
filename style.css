@@ -114,3 +114,10 @@ button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-v
 .row { cursor: pointer; border-radius: 8px; }
 .row:focus-visible { outline: 3px solid var(--focus); }
 .row.off { cursor: default; }
+.key { font-size: 18px; font-weight: 700; margin: 0 0 10px; }
+.quick { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin: 0 0 12px; }
+.quick button { font: inherit; font-size: 16px; line-height: 1.35; min-height: 64px; border-radius: 10px; border: 2px solid var(--line); background: var(--bg); color: var(--ink); cursor: pointer; padding: 6px 4px; }
+.quick button[aria-pressed="true"] { border-color: var(--calm); background: #e7f4ec; color: #1d4d33; font-weight: 700; }
+.quick button small { display: block; font-size: 14px; color: var(--ink-2); font-weight: 500; }
+.time-big.neutral { color: var(--ink-2); font-size: 32px; }
+#r-why { font-size: 14px; }
