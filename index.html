@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>공연 날 도착 길잡이</title>
+<meta name="description" content="올림픽공원 공연 날 단체 관람객이 언제 도착하면 덜 붐비는지 공공데이터로 알려 드립니다.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <p class="eyebrow">올림픽공원 공연 날</p>
+    <h1>단체로 가실 때,<br>언제 도착하면 덜 붐빌까요?</h1>
+  </div>
+</header>
+
+<main class="wrap">
+  <!-- 1. 공연 고르기 -->
+  <section id="step-pick" class="card">
+    <h2><span class="num">1</span> 가실 공연을 고르세요</h2>
+    <div id="event-list" class="event-list" role="list"></div>
+    <details class="manual">
+      <summary>목록에 없으면 직접 넣기</summary>
+      <div class="manual-grid">
+        <label>날짜<input type="date" id="m-date"></label>
+        <label>공연장
+          <select id="m-venue">
+            <option>KSPO DOME</option><option>올림픽홀</option><option>핸드볼경기장</option>
+            <option>우리금융아트홀</option><option>K-아트홀</option>
+          </select>
+        </label>
+        <label>시작 시각<input type="time" id="m-time" value="18:00" step="600"></label>
+        <button class="btn" id="m-go" type="button">이 공연으로 보기</button>
+      </div>
+    </details>
+  </section>
+
+  <!-- 2. 일행 -->
+  <section id="step-group" class="card" hidden>
+    <h2><span class="num">2</span> 어떻게 오시나요?</h2>
+    <p class="chosen" id="chosen"></p>
+    <div class="choice" role="radiogroup" aria-label="오는 방법">
+      <button type="button" class="opt" data-mode="bus" aria-pressed="true">단체버스</button>
+      <button type="button" class="opt" data-mode="car" aria-pressed="false">자가용</button>
+      <button type="button" class="opt" data-mode="transit" aria-pressed="false">지하철·버스</button>
+    </div>
+    <h3>가장 일찍 도착할 수 있는 때는요?</h3>
+    <div class="choice four" role="radiogroup" aria-label="가장 일찍 올 수 있는 때">
+      <button type="button" class="opt" data-limit="90" aria-pressed="false">공연 1시간 30분 전</button>
+      <button type="button" class="opt" data-limit="120" aria-pressed="false">공연 2시간 전</button>
+      <button type="button" class="opt" data-limit="150" aria-pressed="true">공연 2시간 30분 전</button>
+      <button type="button" class="opt" data-limit="180" aria-pressed="false">공연 3시간 전</button>
+    </div>
+    <p class="sub">과거 공연 날에는 늦게 올수록 차가 더 몰렸어요. 그래서 고르신 때부터 30분을 권하고, 늦출 때마다 얼마나 더 몰렸는지 보여 드려요.</p>
+    <label class="check"><input type="checkbox" id="slow"> 걸음이 느린 분이 계세요 (이동 여유 20분 더)</label>
+    <button class="btn big" id="show" type="button">도착 시간 보기</button>
+  </section>
+
+  <!-- 3. 결과 -->
+  <section id="step-result" hidden>
+    <div class="card result-main">
+      <p class="label">권장 도착</p>
+      <p class="time-big" id="r-window"></p>
+      <p class="sub" id="r-why"></p>
+      <p class="sub later" id="r-later"></p>
+      <p class="notice small" id="r-multi" hidden></p>
+      <div class="avoid">
+        <p class="label">차가 가장 많이 몰린 때 (피하세요)</p>
+        <p class="time-mid" id="r-avoid"></p>
+        <p class="sub" id="r-avoid-why"></p>
+      </div>
+      <button class="btn" id="copy" type="button">단체방에 보낼 글 복사</button>
+      <p class="copied" id="copied" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="card">
+      <h2>시간대별 차량 유입 (과거 공연 날)</h2>
+      <p class="sub" id="chart-note"></p>
+      <div id="chart" class="chart"></div>
+      <p class="legend"><span class="sw calm"></span>적음 <span class="sw mid"></span>보통 <span class="sw busy"></span>많음 <span class="sw rng"></span>공연일 가운데 절반 범위</p>
+    </div>
+
+    <details class="card livebox">
+      <summary><h2>기관 실시간 주차 숫자 (뜻 확인 중)</h2></summary>
+      <p class="live" id="live-num">불러오는 중</p>
+      <p class="sub" id="live-note"></p>
+      <button class="btn ghost" id="live-refresh" type="button">다시 불러오기</button>
+    </details>
+
+    <div class="card">
+      <h2>주차·교통 안내</h2>
+      <ul class="info" id="info"></ul>
+      <p class="notice" id="notice"></p>
+    </div>
+
+    <div class="card basis">
+      <h2>이 안내의 근거</h2>
+      <div id="basis"></div>
+    </div>
+    <button class="btn ghost" id="again" type="button">다른 공연 고르기</button>
+  </section>
+</main>
+
+<footer class="wrap foot">
+  <p>자료: 한국체육산업개발(주) 공공데이터(공공데이터포털) · 올림픽공원 홈페이지 공연 안내 · 실시간 주차현황 API</p>
+  <p>과거 기록으로 만든 참고 범위입니다. 당일 상황은 현장 안내를 따르세요.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>

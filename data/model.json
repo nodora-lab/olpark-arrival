@@ -1,0 +1,5242 @@
+{
+ "built": "2026-11-12T18:34",
+ "bin_min": 10,
+ "short_stop_min": 15,
+ "short_stop_share": 0.338,
+ "train_period": "2024-07-01 - 2024-07-31 (올림픽공원 입출차 정보, 215,528건)",
+ "concert_days": [
+  {
+   "date": "2024-07-06",
+   "start": "18:00",
+   "venue": "핸드볼경기장",
+   "shows": [
+    "올림픽홀 19:00",
+    "핸드볼경기장 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-07",
+   "start": "18:00",
+   "venue": "올림픽홀",
+   "shows": [
+    "올림픽홀 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-12",
+   "start": "19:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 19:00"
+   ]
+  },
+  {
+   "date": "2024-07-13",
+   "start": "17:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 17:00",
+    "올림픽홀 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-14",
+   "start": "16:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 16:00",
+    "올림픽홀 16:00"
+   ]
+  },
+  {
+   "date": "2024-07-20",
+   "start": "18:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 18:00",
+    "올림픽홀 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-21",
+   "start": "17:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 17:00",
+    "올림픽홀 16:00"
+   ]
+  },
+  {
+   "date": "2024-07-27",
+   "start": "18:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-28",
+   "start": "16:00",
+   "venue": "KSPO DOME",
+   "shows": [
+    "KSPO DOME 16:00"
+   ]
+  }
+ ],
+ "validation": {
+  "summary": {
+   "n_days": 9,
+   "n_groups": 5,
+   "entries_mae": {
+    "baseline": 23.1,
+    "aligned": 23.7,
+    "hybrid": 23.3
+   },
+   "occupancy_mae": {
+    "baseline": 307.1,
+    "aligned": 296.8,
+    "hybrid": 316.4
+   },
+   "peak_err_min": {
+    "baseline": 75.6,
+    "aligned": 68.9,
+    "hybrid": 61.1
+   },
+   "decision": {
+    "dropoff": {
+     "baseline": {
+      "ratio_to_peak": 0.69,
+      "wait_min": 143
+     },
+     "aligned": {
+      "ratio_to_peak": 0.66,
+      "wait_min": 134
+     },
+     "hybrid": {
+      "ratio_to_peak": 0.72,
+      "wait_min": 121
+     },
+     "fixed_180": {
+      "ratio_to_peak": 0.63,
+      "wait_min": 150
+     },
+     "fixed_150": {
+      "ratio_to_peak": 0.71,
+      "wait_min": 120
+     },
+     "fixed_120": {
+      "ratio_to_peak": 0.8,
+      "wait_min": 90
+     },
+     "fixed_90": {
+      "ratio_to_peak": 0.9,
+      "wait_min": 60
+     },
+     "fixed_60": {
+      "ratio_to_peak": 0.9,
+      "wait_min": 30
+     }
+    },
+    "entries": {
+     "baseline": {
+      "ratio_to_peak": 0.68,
+      "wait_min": 159
+     },
+     "aligned": {
+      "ratio_to_peak": 0.7,
+      "wait_min": 194
+     },
+     "hybrid": {
+      "ratio_to_peak": 0.71,
+      "wait_min": 139
+     },
+     "fixed_180": {
+      "ratio_to_peak": 0.74,
+      "wait_min": 150
+     },
+     "fixed_150": {
+      "ratio_to_peak": 0.8,
+      "wait_min": 120
+     },
+     "fixed_120": {
+      "ratio_to_peak": 0.85,
+      "wait_min": 90
+     },
+     "fixed_90": {
+      "ratio_to_peak": 0.87,
+      "wait_min": 60
+     },
+     "fixed_60": {
+      "ratio_to_peak": 0.77,
+      "wait_min": 30
+     }
+    }
+   },
+   "best_entries": "baseline",
+   "model_beats_baseline": false
+  },
+  "by_day": [
+   {
+    "date": "2024-07-06",
+    "weekday": "토",
+    "start": "18:00",
+    "venue": "핸드볼경기장",
+    "shows": [
+     "올림픽홀 19:00",
+     "핸드볼경기장 18:00"
+    ],
+    "entries": {
+     "baseline": 20.2,
+     "aligned": 18.0,
+     "hybrid": 27.1
+    },
+    "peak_actual": "13:40",
+    "peak_err_min": {
+     "baseline": 170,
+     "aligned": 210,
+     "hybrid": 170
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.85,
+       "wait_min": 170
+      },
+      "aligned": {
+       "window": "15:20-16:20",
+       "ratio_to_peak": 0.8,
+       "wait_min": 130
+      },
+      "hybrid": {
+       "window": "15:10-16:10",
+       "ratio_to_peak": 0.79,
+       "wait_min": 140
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.86,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.77,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.69,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.89,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.98,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.88,
+       "wait_min": 170
+      },
+      "aligned": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.9,
+       "wait_min": 180
+      },
+      "hybrid": {
+       "window": "14:50-15:50",
+       "ratio_to_peak": 0.89,
+       "wait_min": 160
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.92,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.9,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.86,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.8,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.71,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 282.0,
+     "aligned": 198.6,
+     "hybrid": 307.1
+    }
+   },
+   {
+    "date": "2024-07-07",
+    "weekday": "일",
+    "start": "18:00",
+    "venue": "올림픽홀",
+    "shows": [
+     "올림픽홀 18:00"
+    ],
+    "entries": {
+     "baseline": 30.9,
+     "aligned": 31.5,
+     "hybrid": 31.8
+    },
+    "peak_actual": "13:40",
+    "peak_err_min": {
+     "baseline": 80,
+     "aligned": 210,
+     "hybrid": 80
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "16:10-17:10",
+       "ratio_to_peak": 0.89,
+       "wait_min": 80
+      },
+      "aligned": {
+       "window": "15:20-16:20",
+       "ratio_to_peak": 0.73,
+       "wait_min": 130
+      },
+      "hybrid": {
+       "window": "16:10-17:10",
+       "ratio_to_peak": 0.89,
+       "wait_min": 80
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.7,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.83,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.9,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.79,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.86,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "16:10-17:10",
+       "ratio_to_peak": 0.79,
+       "wait_min": 80
+      },
+      "aligned": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.97,
+       "wait_min": 180
+      },
+      "hybrid": {
+       "window": "16:10-17:10",
+       "ratio_to_peak": 0.79,
+       "wait_min": 80
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.86,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.84,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.81,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.7,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.56,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 369.1,
+     "aligned": 324.5,
+     "hybrid": 402.7
+    }
+   },
+   {
+    "date": "2024-07-12",
+    "weekday": "금",
+    "start": "19:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 19:00"
+    ],
+    "entries": {
+     "baseline": 21.3,
+     "aligned": 23.4,
+     "hybrid": 21.6
+    },
+    "peak_actual": "18:00",
+    "peak_err_min": {
+     "baseline": 30,
+     "aligned": 20,
+     "hybrid": 30
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.76,
+       "wait_min": 90
+      },
+      "aligned": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.58,
+       "wait_min": 150
+      },
+      "hybrid": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.76,
+       "wait_min": 90
+      },
+      "fixed_180": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.58,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.64,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.76,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "17:30-18:30",
+       "ratio_to_peak": 0.99,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "18:00-19:00",
+       "ratio_to_peak": 0.91,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "16:20-17:20",
+       "ratio_to_peak": 0.71,
+       "wait_min": 130
+      },
+      "aligned": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.59,
+       "wait_min": 210
+      },
+      "hybrid": {
+       "window": "16:40-17:40",
+       "ratio_to_peak": 0.79,
+       "wait_min": 110
+      },
+      "fixed_180": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.65,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.74,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.85,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "17:30-18:30",
+       "ratio_to_peak": 1.0,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "18:00-19:00",
+       "ratio_to_peak": 0.91,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 135.9,
+     "aligned": 207.4,
+     "hybrid": 136.1
+    }
+   },
+   {
+    "date": "2024-07-13",
+    "weekday": "토",
+    "start": "17:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 17:00",
+     "올림픽홀 18:00"
+    ],
+    "entries": {
+     "baseline": 16.4,
+     "aligned": 19.2,
+     "hybrid": 15.6
+    },
+    "peak_actual": "15:40",
+    "peak_err_min": {
+     "baseline": 50,
+     "aligned": 0,
+     "hybrid": 50
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "15:10-16:10",
+       "ratio_to_peak": 0.83,
+       "wait_min": 80
+      },
+      "aligned": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.49,
+       "wait_min": 150
+      },
+      "hybrid": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.81,
+       "wait_min": 90
+      },
+      "fixed_180": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.49,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.66,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.81,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.91,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.95,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.78,
+       "wait_min": 110
+      },
+      "aligned": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 0.67,
+       "wait_min": 210
+      },
+      "hybrid": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.78,
+       "wait_min": 110
+      },
+      "fixed_180": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.65,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.75,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.87,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.95,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.97,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 82.0,
+     "aligned": 124.9,
+     "hybrid": 100.9
+    }
+   },
+   {
+    "date": "2024-07-14",
+    "weekday": "일",
+    "start": "16:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 16:00",
+     "올림픽홀 16:00"
+    ],
+    "entries": {
+     "baseline": 22.6,
+     "aligned": 22.4,
+     "hybrid": 17.9
+    },
+    "peak_actual": "15:00",
+    "peak_err_min": {
+     "baseline": 80,
+     "aligned": 20,
+     "hybrid": 10
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "12:00-13:00",
+       "ratio_to_peak": 0.36,
+       "wait_min": 210
+      },
+      "aligned": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 0.48,
+       "wait_min": 150
+      },
+      "hybrid": {
+       "window": "12:20-13:20",
+       "ratio_to_peak": 0.42,
+       "wait_min": 190
+      },
+      "fixed_180": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 0.48,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "13:30-14:30",
+       "ratio_to_peak": 0.54,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.66,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.89,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.96,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "12:10-13:10",
+       "ratio_to_peak": 0.48,
+       "wait_min": 200
+      },
+      "aligned": {
+       "window": "12:00-13:00",
+       "ratio_to_peak": 0.47,
+       "wait_min": 210
+      },
+      "hybrid": {
+       "window": "12:10-13:10",
+       "ratio_to_peak": 0.48,
+       "wait_min": 200
+      },
+      "fixed_180": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 0.61,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "13:30-14:30",
+       "ratio_to_peak": 0.65,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.75,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.94,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.95,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 235.9,
+     "aligned": 250.5,
+     "hybrid": 247.0
+    }
+   },
+   {
+    "date": "2024-07-20",
+    "weekday": "토",
+    "start": "18:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 18:00",
+     "올림픽홀 18:00"
+    ],
+    "entries": {
+     "baseline": 27.1,
+     "aligned": 26.4,
+     "hybrid": 23.1
+    },
+    "peak_actual": "17:00",
+    "peak_err_min": {
+     "baseline": 40,
+     "aligned": 20,
+     "hybrid": 40
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "14:20-15:20",
+       "ratio_to_peak": 0.36,
+       "wait_min": 190
+      },
+      "aligned": {
+       "window": "15:10-16:10",
+       "ratio_to_peak": 0.42,
+       "wait_min": 140
+      },
+      "hybrid": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.38,
+       "wait_min": 150
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.38,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.52,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.73,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.96,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.93,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "14:10-15:10",
+       "ratio_to_peak": 0.54,
+       "wait_min": 200
+      },
+      "aligned": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.51,
+       "wait_min": 210
+      },
+      "hybrid": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.57,
+       "wait_min": 170
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.66,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.81,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.94,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.97,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.73,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 531.5,
+     "aligned": 578.3,
+     "hybrid": 515.3
+    }
+   },
+   {
+    "date": "2024-07-21",
+    "weekday": "일",
+    "start": "17:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 17:00",
+     "올림픽홀 16:00"
+    ],
+    "entries": {
+     "baseline": 29.8,
+     "aligned": 30.2,
+     "hybrid": 29.0
+    },
+    "peak_actual": "16:10",
+    "peak_err_min": {
+     "baseline": 150,
+     "aligned": 30,
+     "hybrid": 60
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "13:20-14:20",
+       "ratio_to_peak": 0.5,
+       "wait_min": 190
+      },
+      "aligned": {
+       "window": "14:10-15:10",
+       "ratio_to_peak": 0.51,
+       "wait_min": 140
+      },
+      "hybrid": {
+       "window": "13:50-14:50",
+       "ratio_to_peak": 0.45,
+       "wait_min": 160
+      },
+      "fixed_180": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.47,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.55,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.64,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.86,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.98,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "13:50-14:50",
+       "ratio_to_peak": 0.52,
+       "wait_min": 160
+      },
+      "aligned": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 0.6,
+       "wait_min": 210
+      },
+      "hybrid": {
+       "window": "13:50-14:50",
+       "ratio_to_peak": 0.52,
+       "wait_min": 160
+      },
+      "fixed_180": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.56,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.7,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.8,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.94,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.89,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 692.0,
+     "aligned": 662.7,
+     "hybrid": 663.0
+    }
+   },
+   {
+    "date": "2024-07-27",
+    "weekday": "토",
+    "start": "18:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 18:00"
+    ],
+    "entries": {
+     "baseline": 16.1,
+     "aligned": 21.1,
+     "hybrid": 19.6
+    },
+    "peak_actual": "16:30",
+    "peak_err_min": {
+     "baseline": 0,
+     "aligned": 30,
+     "hybrid": 30
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.68,
+       "wait_min": 170
+      },
+      "aligned": {
+       "window": "15:40-16:40",
+       "ratio_to_peak": 0.99,
+       "wait_min": 110
+      },
+      "hybrid": {
+       "window": "15:50-16:50",
+       "ratio_to_peak": 0.98,
+       "wait_min": 100
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.76,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.94,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 1.0,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.86,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.74,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "14:20-15:20",
+       "ratio_to_peak": 0.68,
+       "wait_min": 190
+      },
+      "aligned": {
+       "window": "14:40-15:40",
+       "ratio_to_peak": 0.74,
+       "wait_min": 170
+      },
+      "hybrid": {
+       "window": "14:50-15:50",
+       "ratio_to_peak": 0.74,
+       "wait_min": 160
+      },
+      "fixed_180": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.79,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "15:30-16:30",
+       "ratio_to_peak": 0.94,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "16:00-17:00",
+       "ratio_to_peak": 0.98,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "16:30-17:30",
+       "ratio_to_peak": 0.76,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "17:00-18:00",
+       "ratio_to_peak": 0.55,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 241.4,
+     "aligned": 250.3,
+     "hybrid": 266.8
+    }
+   },
+   {
+    "date": "2024-07-28",
+    "weekday": "일",
+    "start": "16:00",
+    "venue": "KSPO DOME",
+    "shows": [
+     "KSPO DOME 16:00"
+    ],
+    "entries": {
+     "baseline": 23.2,
+     "aligned": 20.8,
+     "hybrid": 24.0
+    },
+    "peak_actual": "13:40",
+    "peak_err_min": {
+     "baseline": 80,
+     "aligned": 80,
+     "hybrid": 80
+    },
+    "decision": {
+     "dropoff": {
+      "baseline": {
+       "window": "13:40-14:40",
+       "ratio_to_peak": 0.98,
+       "wait_min": 110
+      },
+      "aligned": {
+       "window": "13:40-14:40",
+       "ratio_to_peak": 0.98,
+       "wait_min": 110
+      },
+      "hybrid": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 1.0,
+       "wait_min": 90
+      },
+      "fixed_180": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 0.98,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "13:30-14:30",
+       "ratio_to_peak": 0.98,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 1.0,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.93,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.83,
+       "wait_min": 30
+      }
+     },
+     "entries": {
+      "baseline": {
+       "window": "12:20-13:20",
+       "ratio_to_peak": 0.76,
+       "wait_min": 190
+      },
+      "aligned": {
+       "window": "12:40-13:40",
+       "ratio_to_peak": 0.89,
+       "wait_min": 170
+      },
+      "hybrid": {
+       "window": "13:50-14:50",
+       "ratio_to_peak": 0.79,
+       "wait_min": 100
+      },
+      "fixed_180": {
+       "window": "13:00-14:00",
+       "ratio_to_peak": 1.0,
+       "wait_min": 150
+      },
+      "fixed_150": {
+       "window": "13:30-14:30",
+       "ratio_to_peak": 0.91,
+       "wait_min": 120
+      },
+      "fixed_120": {
+       "window": "14:00-15:00",
+       "ratio_to_peak": 0.78,
+       "wait_min": 90
+      },
+      "fixed_90": {
+       "window": "14:30-15:30",
+       "ratio_to_peak": 0.75,
+       "wait_min": 60
+      },
+      "fixed_60": {
+       "window": "15:00-16:00",
+       "ratio_to_peak": 0.68,
+       "wait_min": 30
+      }
+     }
+    },
+    "occupancy": {
+     "baseline": 194.5,
+     "aligned": 74.4,
+     "hybrid": 208.4
+    }
+   }
+  ]
+ },
+ "profile": {
+  "entries": [
+   {
+    "off": -480,
+    "mean": 71.1,
+    "p25": 53,
+    "p75": 96,
+    "min": 25,
+    "max": 109
+   },
+   {
+    "off": -470,
+    "mean": 78.6,
+    "p25": 51,
+    "p75": 101,
+    "min": 30,
+    "max": 119
+   },
+   {
+    "off": -460,
+    "mean": 86.1,
+    "p25": 68,
+    "p75": 93,
+    "min": 45,
+    "max": 137
+   },
+   {
+    "off": -450,
+    "mean": 88.2,
+    "p25": 68,
+    "p75": 110,
+    "min": 52,
+    "max": 131
+   },
+   {
+    "off": -440,
+    "mean": 91.3,
+    "p25": 86,
+    "p75": 99,
+    "min": 50,
+    "max": 129
+   },
+   {
+    "off": -430,
+    "mean": 87.7,
+    "p25": 76,
+    "p75": 97,
+    "min": 57,
+    "max": 118
+   },
+   {
+    "off": -420,
+    "mean": 74.1,
+    "p25": 65,
+    "p75": 84,
+    "min": 49,
+    "max": 99
+   },
+   {
+    "off": -410,
+    "mean": 70.6,
+    "p25": 53,
+    "p75": 89,
+    "min": 42,
+    "max": 110
+   },
+   {
+    "off": -400,
+    "mean": 94.6,
+    "p25": 73,
+    "p75": 111,
+    "min": 61,
+    "max": 156
+   },
+   {
+    "off": -390,
+    "mean": 85.2,
+    "p25": 70,
+    "p75": 95,
+    "min": 56,
+    "max": 124
+   },
+   {
+    "off": -380,
+    "mean": 89.8,
+    "p25": 78,
+    "p75": 92,
+    "min": 59,
+    "max": 128
+   },
+   {
+    "off": -370,
+    "mean": 91.3,
+    "p25": 81,
+    "p75": 107,
+    "min": 52,
+    "max": 117
+   },
+   {
+    "off": -360,
+    "mean": 79.3,
+    "p25": 61,
+    "p75": 88,
+    "min": 53,
+    "max": 129
+   },
+   {
+    "off": -350,
+    "mean": 78.7,
+    "p25": 70,
+    "p75": 80,
+    "min": 48,
+    "max": 132
+   },
+   {
+    "off": -340,
+    "mean": 83.1,
+    "p25": 67,
+    "p75": 103,
+    "min": 46,
+    "max": 135
+   },
+   {
+    "off": -330,
+    "mean": 85.2,
+    "p25": 73,
+    "p75": 105,
+    "min": 55,
+    "max": 121
+   },
+   {
+    "off": -320,
+    "mean": 91.4,
+    "p25": 81,
+    "p75": 101,
+    "min": 70,
+    "max": 122
+   },
+   {
+    "off": -310,
+    "mean": 93.1,
+    "p25": 86,
+    "p75": 100,
+    "min": 69,
+    "max": 117
+   },
+   {
+    "off": -300,
+    "mean": 82.8,
+    "p25": 74,
+    "p75": 90,
+    "min": 66,
+    "max": 106
+   },
+   {
+    "off": -290,
+    "mean": 87.1,
+    "p25": 78,
+    "p75": 99,
+    "min": 62,
+    "max": 106
+   },
+   {
+    "off": -280,
+    "mean": 97.3,
+    "p25": 82,
+    "p75": 97,
+    "min": 71,
+    "max": 143
+   },
+   {
+    "off": -270,
+    "mean": 99.1,
+    "p25": 91,
+    "p75": 102,
+    "min": 67,
+    "max": 138
+   },
+   {
+    "off": -260,
+    "mean": 99.1,
+    "p25": 83,
+    "p75": 111,
+    "min": 78,
+    "max": 127
+   },
+   {
+    "off": -250,
+    "mean": 88.7,
+    "p25": 75,
+    "p75": 96,
+    "min": 62,
+    "max": 126
+   },
+   {
+    "off": -240,
+    "mean": 80.7,
+    "p25": 72,
+    "p75": 87,
+    "min": 59,
+    "max": 109
+   },
+   {
+    "off": -230,
+    "mean": 86.7,
+    "p25": 73,
+    "p75": 96,
+    "min": 70,
+    "max": 121
+   },
+   {
+    "off": -220,
+    "mean": 93,
+    "p25": 77,
+    "p75": 104,
+    "min": 70,
+    "max": 150
+   },
+   {
+    "off": -210,
+    "mean": 95.4,
+    "p25": 88,
+    "p75": 97,
+    "min": 70,
+    "max": 143
+   },
+   {
+    "off": -200,
+    "mean": 102.2,
+    "p25": 94,
+    "p75": 104,
+    "min": 73,
+    "max": 153
+   },
+   {
+    "off": -190,
+    "mean": 95.6,
+    "p25": 83,
+    "p75": 111,
+    "min": 75,
+    "max": 122
+   },
+   {
+    "off": -180,
+    "mean": 95.8,
+    "p25": 84,
+    "p75": 110,
+    "min": 74,
+    "max": 125
+   },
+   {
+    "off": -170,
+    "mean": 95.6,
+    "p25": 85,
+    "p75": 104,
+    "min": 58,
+    "max": 148
+   },
+   {
+    "off": -160,
+    "mean": 100.1,
+    "p25": 85,
+    "p75": 109,
+    "min": 78,
+    "max": 134
+   },
+   {
+    "off": -150,
+    "mean": 105.9,
+    "p25": 85,
+    "p75": 125,
+    "min": 76,
+    "max": 149
+   },
+   {
+    "off": -140,
+    "mean": 114.4,
+    "p25": 92,
+    "p75": 143,
+    "min": 81,
+    "max": 160
+   },
+   {
+    "off": -130,
+    "mean": 113.9,
+    "p25": 98,
+    "p75": 118,
+    "min": 65,
+    "max": 169
+   },
+   {
+    "off": -120,
+    "mean": 112,
+    "p25": 94,
+    "p75": 122,
+    "min": 68,
+    "max": 178
+   },
+   {
+    "off": -110,
+    "mean": 119.6,
+    "p25": 105,
+    "p75": 126,
+    "min": 83,
+    "max": 175
+   },
+   {
+    "off": -100,
+    "mean": 125.2,
+    "p25": 100,
+    "p75": 136,
+    "min": 83,
+    "max": 192
+   },
+   {
+    "off": -90,
+    "mean": 125,
+    "p25": 102,
+    "p75": 150,
+    "min": 73,
+    "max": 204
+   },
+   {
+    "off": -80,
+    "mean": 131.2,
+    "p25": 100,
+    "p75": 156,
+    "min": 78,
+    "max": 202
+   },
+   {
+    "off": -70,
+    "mean": 128.3,
+    "p25": 92,
+    "p75": 149,
+    "min": 65,
+    "max": 211
+   },
+   {
+    "off": -60,
+    "mean": 132.4,
+    "p25": 80,
+    "p75": 173,
+    "min": 57,
+    "max": 218
+   },
+   {
+    "off": -50,
+    "mean": 134,
+    "p25": 84,
+    "p75": 165,
+    "min": 60,
+    "max": 238
+   },
+   {
+    "off": -40,
+    "mean": 125,
+    "p25": 71,
+    "p75": 159,
+    "min": 57,
+    "max": 226
+   },
+   {
+    "off": -30,
+    "mean": 119.7,
+    "p25": 90,
+    "p75": 140,
+    "min": 47,
+    "max": 236
+   },
+   {
+    "off": -20,
+    "mean": 106.6,
+    "p25": 78,
+    "p75": 129,
+    "min": 51,
+    "max": 186
+   },
+   {
+    "off": -10,
+    "mean": 76,
+    "p25": 61,
+    "p75": 88,
+    "min": 40,
+    "max": 123
+   },
+   {
+    "off": 0,
+    "mean": 60.8,
+    "p25": 50,
+    "p75": 72,
+    "min": 33,
+    "max": 78
+   },
+   {
+    "off": 10,
+    "mean": 56.4,
+    "p25": 46,
+    "p75": 66,
+    "min": 18,
+    "max": 85
+   },
+   {
+    "off": 20,
+    "mean": 51.8,
+    "p25": 42,
+    "p75": 66,
+    "min": 13,
+    "max": 81
+   },
+   {
+    "off": 30,
+    "mean": 48.2,
+    "p25": 38,
+    "p75": 63,
+    "min": 26,
+    "max": 80
+   },
+   {
+    "off": 40,
+    "mean": 50.1,
+    "p25": 35,
+    "p75": 56,
+    "min": 13,
+    "max": 85
+   },
+   {
+    "off": 50,
+    "mean": 41.2,
+    "p25": 32,
+    "p75": 50,
+    "min": 13,
+    "max": 71
+   },
+   {
+    "off": 60,
+    "mean": 31.6,
+    "p25": 25,
+    "p75": 36,
+    "min": 13,
+    "max": 50
+   },
+   {
+    "off": 70,
+    "mean": 38,
+    "p25": 26,
+    "p75": 47,
+    "min": 12,
+    "max": 58
+   },
+   {
+    "off": 80,
+    "mean": 37,
+    "p25": 30,
+    "p75": 43,
+    "min": 15,
+    "max": 70
+   },
+   {
+    "off": 90,
+    "mean": 37.7,
+    "p25": 22,
+    "p75": 46,
+    "min": 12,
+    "max": 69
+   },
+   {
+    "off": 100,
+    "mean": 40.7,
+    "p25": 28,
+    "p75": 47,
+    "min": 15,
+    "max": 79
+   },
+   {
+    "off": 110,
+    "mean": 38.8,
+    "p25": 33,
+    "p75": 47,
+    "min": 14,
+    "max": 58
+   },
+   {
+    "off": 120,
+    "mean": 34.9,
+    "p25": 22,
+    "p75": 45,
+    "min": 13,
+    "max": 55
+   },
+   {
+    "off": 130,
+    "mean": 36.9,
+    "p25": 25,
+    "p75": 48,
+    "min": 16,
+    "max": 57
+   },
+   {
+    "off": 140,
+    "mean": 39.7,
+    "p25": 35,
+    "p75": 47,
+    "min": 15,
+    "max": 53
+   },
+   {
+    "off": 150,
+    "mean": 45.1,
+    "p25": 42,
+    "p75": 54,
+    "min": 12,
+    "max": 59
+   },
+   {
+    "off": 160,
+    "mean": 46.2,
+    "p25": 42,
+    "p75": 49,
+    "min": 19,
+    "max": 74
+   },
+   {
+    "off": 170,
+    "mean": 47.1,
+    "p25": 36,
+    "p75": 62,
+    "min": 21,
+    "max": 68
+   },
+   {
+    "off": 180,
+    "mean": 40.8,
+    "p25": 35,
+    "p75": 48,
+    "min": 15,
+    "max": 74
+   }
+  ],
+  "entries_long": [
+   {
+    "off": -480,
+    "mean": 49.2,
+    "p25": 27,
+    "p75": 70,
+    "min": 10,
+    "max": 82
+   },
+   {
+    "off": -470,
+    "mean": 56.9,
+    "p25": 30,
+    "p75": 76,
+    "min": 22,
+    "max": 95
+   },
+   {
+    "off": -460,
+    "mean": 64.3,
+    "p25": 43,
+    "p75": 74,
+    "min": 31,
+    "max": 105
+   },
+   {
+    "off": -450,
+    "mean": 65.2,
+    "p25": 46,
+    "p75": 86,
+    "min": 30,
+    "max": 103
+   },
+   {
+    "off": -440,
+    "mean": 65,
+    "p25": 61,
+    "p75": 82,
+    "min": 27,
+    "max": 91
+   },
+   {
+    "off": -430,
+    "mean": 60.3,
+    "p25": 50,
+    "p75": 66,
+    "min": 35,
+    "max": 94
+   },
+   {
+    "off": -420,
+    "mean": 48.1,
+    "p25": 37,
+    "p75": 54,
+    "min": 31,
+    "max": 73
+   },
+   {
+    "off": -410,
+    "mean": 46.8,
+    "p25": 36,
+    "p75": 56,
+    "min": 22,
+    "max": 78
+   },
+   {
+    "off": -400,
+    "mean": 63.1,
+    "p25": 42,
+    "p75": 69,
+    "min": 33,
+    "max": 120
+   },
+   {
+    "off": -390,
+    "mean": 56,
+    "p25": 44,
+    "p75": 66,
+    "min": 32,
+    "max": 82
+   },
+   {
+    "off": -380,
+    "mean": 60.9,
+    "p25": 50,
+    "p75": 65,
+    "min": 38,
+    "max": 90
+   },
+   {
+    "off": -370,
+    "mean": 59.4,
+    "p25": 53,
+    "p75": 70,
+    "min": 35,
+    "max": 77
+   },
+   {
+    "off": -360,
+    "mean": 49.8,
+    "p25": 35,
+    "p75": 53,
+    "min": 33,
+    "max": 94
+   },
+   {
+    "off": -350,
+    "mean": 50,
+    "p25": 45,
+    "p75": 55,
+    "min": 31,
+    "max": 82
+   },
+   {
+    "off": -340,
+    "mean": 54,
+    "p25": 37,
+    "p75": 73,
+    "min": 30,
+    "max": 87
+   },
+   {
+    "off": -330,
+    "mean": 53,
+    "p25": 40,
+    "p75": 55,
+    "min": 33,
+    "max": 82
+   },
+   {
+    "off": -320,
+    "mean": 55.3,
+    "p25": 45,
+    "p75": 63,
+    "min": 44,
+    "max": 70
+   },
+   {
+    "off": -310,
+    "mean": 58.3,
+    "p25": 50,
+    "p75": 58,
+    "min": 47,
+    "max": 90
+   },
+   {
+    "off": -300,
+    "mean": 48,
+    "p25": 46,
+    "p75": 50,
+    "min": 34,
+    "max": 61
+   },
+   {
+    "off": -290,
+    "mean": 53.3,
+    "p25": 43,
+    "p75": 66,
+    "min": 37,
+    "max": 77
+   },
+   {
+    "off": -280,
+    "mean": 62.2,
+    "p25": 44,
+    "p75": 70,
+    "min": 43,
+    "max": 105
+   },
+   {
+    "off": -270,
+    "mean": 63,
+    "p25": 54,
+    "p75": 72,
+    "min": 44,
+    "max": 90
+   },
+   {
+    "off": -260,
+    "mean": 61.6,
+    "p25": 44,
+    "p75": 73,
+    "min": 41,
+    "max": 87
+   },
+   {
+    "off": -250,
+    "mean": 54.3,
+    "p25": 45,
+    "p75": 67,
+    "min": 28,
+    "max": 74
+   },
+   {
+    "off": -240,
+    "mean": 50.1,
+    "p25": 35,
+    "p75": 66,
+    "min": 30,
+    "max": 76
+   },
+   {
+    "off": -230,
+    "mean": 55.8,
+    "p25": 40,
+    "p75": 60,
+    "min": 33,
+    "max": 92
+   },
+   {
+    "off": -220,
+    "mean": 56.9,
+    "p25": 42,
+    "p75": 68,
+    "min": 34,
+    "max": 100
+   },
+   {
+    "off": -210,
+    "mean": 62.4,
+    "p25": 50,
+    "p75": 69,
+    "min": 35,
+    "max": 101
+   },
+   {
+    "off": -200,
+    "mean": 66,
+    "p25": 54,
+    "p75": 74,
+    "min": 40,
+    "max": 113
+   },
+   {
+    "off": -190,
+    "mean": 60.9,
+    "p25": 46,
+    "p75": 74,
+    "min": 42,
+    "max": 90
+   },
+   {
+    "off": -180,
+    "mean": 60.9,
+    "p25": 51,
+    "p75": 68,
+    "min": 32,
+    "max": 89
+   },
+   {
+    "off": -170,
+    "mean": 60.6,
+    "p25": 47,
+    "p75": 78,
+    "min": 25,
+    "max": 89
+   },
+   {
+    "off": -160,
+    "mean": 63.9,
+    "p25": 52,
+    "p75": 73,
+    "min": 35,
+    "max": 100
+   },
+   {
+    "off": -150,
+    "mean": 67.6,
+    "p25": 51,
+    "p75": 86,
+    "min": 47,
+    "max": 99
+   },
+   {
+    "off": -140,
+    "mean": 74.1,
+    "p25": 54,
+    "p75": 96,
+    "min": 49,
+    "max": 122
+   },
+   {
+    "off": -130,
+    "mean": 73.4,
+    "p25": 51,
+    "p75": 76,
+    "min": 45,
+    "max": 130
+   },
+   {
+    "off": -120,
+    "mean": 67.9,
+    "p25": 48,
+    "p75": 64,
+    "min": 42,
+    "max": 131
+   },
+   {
+    "off": -110,
+    "mean": 74.7,
+    "p25": 56,
+    "p75": 69,
+    "min": 51,
+    "max": 137
+   },
+   {
+    "off": -100,
+    "mean": 74.2,
+    "p25": 52,
+    "p75": 69,
+    "min": 49,
+    "max": 138
+   },
+   {
+    "off": -90,
+    "mean": 74.2,
+    "p25": 50,
+    "p75": 77,
+    "min": 48,
+    "max": 145
+   },
+   {
+    "off": -80,
+    "mean": 77.9,
+    "p25": 54,
+    "p75": 75,
+    "min": 47,
+    "max": 146
+   },
+   {
+    "off": -70,
+    "mean": 74.3,
+    "p25": 50,
+    "p75": 66,
+    "min": 35,
+    "max": 166
+   },
+   {
+    "off": -60,
+    "mean": 69.1,
+    "p25": 36,
+    "p75": 68,
+    "min": 30,
+    "max": 145
+   },
+   {
+    "off": -50,
+    "mean": 69.2,
+    "p25": 36,
+    "p75": 74,
+    "min": 26,
+    "max": 160
+   },
+   {
+    "off": -40,
+    "mean": 64.9,
+    "p25": 42,
+    "p75": 78,
+    "min": 23,
+    "max": 155
+   },
+   {
+    "off": -30,
+    "mean": 55.4,
+    "p25": 33,
+    "p75": 62,
+    "min": 24,
+    "max": 148
+   },
+   {
+    "off": -20,
+    "mean": 51,
+    "p25": 38,
+    "p75": 59,
+    "min": 13,
+    "max": 106
+   },
+   {
+    "off": -10,
+    "mean": 36.7,
+    "p25": 22,
+    "p75": 46,
+    "min": 12,
+    "max": 64
+   },
+   {
+    "off": 0,
+    "mean": 32.8,
+    "p25": 28,
+    "p75": 43,
+    "min": 12,
+    "max": 45
+   },
+   {
+    "off": 10,
+    "mean": 32.7,
+    "p25": 21,
+    "p75": 43,
+    "min": 6,
+    "max": 68
+   },
+   {
+    "off": 20,
+    "mean": 31.8,
+    "p25": 23,
+    "p75": 37,
+    "min": 6,
+    "max": 61
+   },
+   {
+    "off": 30,
+    "mean": 27,
+    "p25": 17,
+    "p75": 38,
+    "min": 8,
+    "max": 57
+   },
+   {
+    "off": 40,
+    "mean": 29,
+    "p25": 19,
+    "p75": 31,
+    "min": 7,
+    "max": 63
+   },
+   {
+    "off": 50,
+    "mean": 22.8,
+    "p25": 14,
+    "p75": 24,
+    "min": 2,
+    "max": 52
+   },
+   {
+    "off": 60,
+    "mean": 15.8,
+    "p25": 13,
+    "p75": 22,
+    "min": 3,
+    "max": 28
+   },
+   {
+    "off": 70,
+    "mean": 23.3,
+    "p25": 20,
+    "p75": 31,
+    "min": 6,
+    "max": 39
+   },
+   {
+    "off": 80,
+    "mean": 22.3,
+    "p25": 14,
+    "p75": 33,
+    "min": 7,
+    "max": 50
+   },
+   {
+    "off": 90,
+    "mean": 21,
+    "p25": 15,
+    "p75": 25,
+    "min": 5,
+    "max": 54
+   },
+   {
+    "off": 100,
+    "mean": 27.8,
+    "p25": 20,
+    "p75": 34,
+    "min": 4,
+    "max": 61
+   },
+   {
+    "off": 110,
+    "mean": 24.1,
+    "p25": 14,
+    "p75": 32,
+    "min": 7,
+    "max": 37
+   },
+   {
+    "off": 120,
+    "mean": 22.3,
+    "p25": 14,
+    "p75": 29,
+    "min": 10,
+    "max": 31
+   },
+   {
+    "off": 130,
+    "mean": 22,
+    "p25": 12,
+    "p75": 31,
+    "min": 8,
+    "max": 35
+   },
+   {
+    "off": 140,
+    "mean": 22.8,
+    "p25": 20,
+    "p75": 32,
+    "min": 5,
+    "max": 38
+   },
+   {
+    "off": 150,
+    "mean": 23.8,
+    "p25": 20,
+    "p75": 33,
+    "min": 7,
+    "max": 34
+   },
+   {
+    "off": 160,
+    "mean": 25.1,
+    "p25": 13,
+    "p75": 32,
+    "min": 11,
+    "max": 51
+   },
+   {
+    "off": 170,
+    "mean": 23,
+    "p25": 16,
+    "p75": 29,
+    "min": 8,
+    "max": 38
+   },
+   {
+    "off": 180,
+    "mean": 19.8,
+    "p25": 10,
+    "p75": 24,
+    "min": 3,
+    "max": 50
+   }
+  ],
+  "entries_short": [
+   {
+    "off": -480,
+    "mean": 21.9,
+    "p25": 20,
+    "p75": 26,
+    "min": 8,
+    "max": 31
+   },
+   {
+    "off": -470,
+    "mean": 21.7,
+    "p25": 19,
+    "p75": 25,
+    "min": 8,
+    "max": 31
+   },
+   {
+    "off": -460,
+    "mean": 21.8,
+    "p25": 15,
+    "p75": 26,
+    "min": 11,
+    "max": 32
+   },
+   {
+    "off": -450,
+    "mean": 23,
+    "p25": 17,
+    "p75": 28,
+    "min": 15,
+    "max": 30
+   },
+   {
+    "off": -440,
+    "mean": 26.3,
+    "p25": 24,
+    "p75": 28,
+    "min": 17,
+    "max": 38
+   },
+   {
+    "off": -430,
+    "mean": 27.3,
+    "p25": 25,
+    "p75": 30,
+    "min": 22,
+    "max": 36
+   },
+   {
+    "off": -420,
+    "mean": 26,
+    "p25": 25,
+    "p75": 30,
+    "min": 12,
+    "max": 34
+   },
+   {
+    "off": -410,
+    "mean": 23.8,
+    "p25": 18,
+    "p75": 31,
+    "min": 13,
+    "max": 33
+   },
+   {
+    "off": -400,
+    "mean": 31.4,
+    "p25": 27,
+    "p75": 36,
+    "min": 20,
+    "max": 42
+   },
+   {
+    "off": -390,
+    "mean": 29.2,
+    "p25": 24,
+    "p75": 32,
+    "min": 18,
+    "max": 43
+   },
+   {
+    "off": -380,
+    "mean": 28.9,
+    "p25": 25,
+    "p75": 34,
+    "min": 21,
+    "max": 40
+   },
+   {
+    "off": -370,
+    "mean": 31.9,
+    "p25": 27,
+    "p75": 37,
+    "min": 17,
+    "max": 53
+   },
+   {
+    "off": -360,
+    "mean": 29.6,
+    "p25": 23,
+    "p75": 32,
+    "min": 20,
+    "max": 50
+   },
+   {
+    "off": -350,
+    "mean": 28.7,
+    "p25": 21,
+    "p75": 32,
+    "min": 17,
+    "max": 50
+   },
+   {
+    "off": -340,
+    "mean": 29.1,
+    "p25": 26,
+    "p75": 33,
+    "min": 16,
+    "max": 48
+   },
+   {
+    "off": -330,
+    "mean": 32.2,
+    "p25": 26,
+    "p75": 37,
+    "min": 22,
+    "max": 50
+   },
+   {
+    "off": -320,
+    "mean": 36.1,
+    "p25": 30,
+    "p75": 40,
+    "min": 19,
+    "max": 52
+   },
+   {
+    "off": -310,
+    "mean": 34.8,
+    "p25": 27,
+    "p75": 46,
+    "min": 22,
+    "max": 49
+   },
+   {
+    "off": -300,
+    "mean": 34.8,
+    "p25": 27,
+    "p75": 39,
+    "min": 25,
+    "max": 56
+   },
+   {
+    "off": -290,
+    "mean": 33.8,
+    "p25": 25,
+    "p75": 40,
+    "min": 21,
+    "max": 56
+   },
+   {
+    "off": -280,
+    "mean": 35.1,
+    "p25": 28,
+    "p75": 39,
+    "min": 23,
+    "max": 53
+   },
+   {
+    "off": -270,
+    "mean": 36.1,
+    "p25": 30,
+    "p75": 45,
+    "min": 13,
+    "max": 48
+   },
+   {
+    "off": -260,
+    "mean": 37.6,
+    "p25": 35,
+    "p75": 41,
+    "min": 25,
+    "max": 46
+   },
+   {
+    "off": -250,
+    "mean": 34.3,
+    "p25": 30,
+    "p75": 37,
+    "min": 21,
+    "max": 52
+   },
+   {
+    "off": -240,
+    "mean": 30.6,
+    "p25": 29,
+    "p75": 37,
+    "min": 19,
+    "max": 39
+   },
+   {
+    "off": -230,
+    "mean": 30.9,
+    "p25": 27,
+    "p75": 32,
+    "min": 22,
+    "max": 46
+   },
+   {
+    "off": -220,
+    "mean": 36.1,
+    "p25": 36,
+    "p75": 40,
+    "min": 17,
+    "max": 50
+   },
+   {
+    "off": -210,
+    "mean": 33,
+    "p25": 29,
+    "p75": 37,
+    "min": 19,
+    "max": 47
+   },
+   {
+    "off": -200,
+    "mean": 36.2,
+    "p25": 33,
+    "p75": 41,
+    "min": 19,
+    "max": 43
+   },
+   {
+    "off": -190,
+    "mean": 34.7,
+    "p25": 29,
+    "p75": 37,
+    "min": 26,
+    "max": 50
+   },
+   {
+    "off": -180,
+    "mean": 34.9,
+    "p25": 26,
+    "p75": 42,
+    "min": 23,
+    "max": 57
+   },
+   {
+    "off": -170,
+    "mean": 35,
+    "p25": 26,
+    "p75": 45,
+    "min": 19,
+    "max": 59
+   },
+   {
+    "off": -160,
+    "mean": 36.2,
+    "p25": 30,
+    "p75": 43,
+    "min": 17,
+    "max": 53
+   },
+   {
+    "off": -150,
+    "mean": 38.3,
+    "p25": 27,
+    "p75": 47,
+    "min": 17,
+    "max": 53
+   },
+   {
+    "off": -140,
+    "mean": 40.3,
+    "p25": 31,
+    "p75": 50,
+    "min": 21,
+    "max": 64
+   },
+   {
+    "off": -130,
+    "mean": 40.4,
+    "p25": 33,
+    "p75": 51,
+    "min": 14,
+    "max": 60
+   },
+   {
+    "off": -120,
+    "mean": 44.1,
+    "p25": 42,
+    "p75": 54,
+    "min": 21,
+    "max": 58
+   },
+   {
+    "off": -110,
+    "mean": 44.9,
+    "p25": 37,
+    "p75": 54,
+    "min": 27,
+    "max": 59
+   },
+   {
+    "off": -100,
+    "mean": 51,
+    "p25": 40,
+    "p75": 66,
+    "min": 20,
+    "max": 73
+   },
+   {
+    "off": -90,
+    "mean": 50.8,
+    "p25": 46,
+    "p75": 59,
+    "min": 25,
+    "max": 75
+   },
+   {
+    "off": -80,
+    "mean": 53.3,
+    "p25": 47,
+    "p75": 66,
+    "min": 20,
+    "max": 82
+   },
+   {
+    "off": -70,
+    "mean": 54,
+    "p25": 45,
+    "p75": 65,
+    "min": 15,
+    "max": 83
+   },
+   {
+    "off": -60,
+    "mean": 63.3,
+    "p25": 43,
+    "p75": 79,
+    "min": 25,
+    "max": 105
+   },
+   {
+    "off": -50,
+    "mean": 64.8,
+    "p25": 49,
+    "p75": 80,
+    "min": 24,
+    "max": 95
+   },
+   {
+    "off": -40,
+    "mean": 60.1,
+    "p25": 35,
+    "p75": 77,
+    "min": 22,
+    "max": 101
+   },
+   {
+    "off": -30,
+    "mean": 64.2,
+    "p25": 44,
+    "p75": 87,
+    "min": 23,
+    "max": 102
+   },
+   {
+    "off": -20,
+    "mean": 55.6,
+    "p25": 40,
+    "p75": 68,
+    "min": 25,
+    "max": 89
+   },
+   {
+    "off": -10,
+    "mean": 39.3,
+    "p25": 29,
+    "p75": 40,
+    "min": 27,
+    "max": 59
+   },
+   {
+    "off": 0,
+    "mean": 28,
+    "p25": 24,
+    "p75": 32,
+    "min": 21,
+    "max": 39
+   },
+   {
+    "off": 10,
+    "mean": 23.8,
+    "p25": 21,
+    "p75": 29,
+    "min": 12,
+    "max": 32
+   },
+   {
+    "off": 20,
+    "mean": 20,
+    "p25": 14,
+    "p75": 24,
+    "min": 7,
+    "max": 33
+   },
+   {
+    "off": 30,
+    "mean": 21.2,
+    "p25": 18,
+    "p75": 25,
+    "min": 13,
+    "max": 25
+   },
+   {
+    "off": 40,
+    "mean": 21.1,
+    "p25": 17,
+    "p75": 26,
+    "min": 6,
+    "max": 37
+   },
+   {
+    "off": 50,
+    "mean": 18.4,
+    "p25": 11,
+    "p75": 22,
+    "min": 8,
+    "max": 29
+   },
+   {
+    "off": 60,
+    "mean": 15.8,
+    "p25": 12,
+    "p75": 19,
+    "min": 10,
+    "max": 28
+   },
+   {
+    "off": 70,
+    "mean": 14.7,
+    "p25": 14,
+    "p75": 16,
+    "min": 6,
+    "max": 25
+   },
+   {
+    "off": 80,
+    "mean": 14.7,
+    "p25": 10,
+    "p75": 18,
+    "min": 8,
+    "max": 20
+   },
+   {
+    "off": 90,
+    "mean": 16.7,
+    "p25": 12,
+    "p75": 23,
+    "min": 6,
+    "max": 25
+   },
+   {
+    "off": 100,
+    "mean": 12.9,
+    "p25": 11,
+    "p75": 15,
+    "min": 8,
+    "max": 18
+   },
+   {
+    "off": 110,
+    "mean": 14.7,
+    "p25": 13,
+    "p75": 19,
+    "min": 6,
+    "max": 21
+   },
+   {
+    "off": 120,
+    "mean": 12.6,
+    "p25": 11,
+    "p75": 16,
+    "min": 3,
+    "max": 25
+   },
+   {
+    "off": 130,
+    "mean": 14.9,
+    "p25": 11,
+    "p75": 21,
+    "min": 4,
+    "max": 25
+   },
+   {
+    "off": 140,
+    "mean": 16.9,
+    "p25": 14,
+    "p75": 18,
+    "min": 8,
+    "max": 30
+   },
+   {
+    "off": 150,
+    "mean": 21.3,
+    "p25": 17,
+    "p75": 25,
+    "min": 4,
+    "max": 34
+   },
+   {
+    "off": 160,
+    "mean": 21.1,
+    "p25": 15,
+    "p75": 29,
+    "min": 7,
+    "max": 38
+   },
+   {
+    "off": 170,
+    "mean": 24.1,
+    "p25": 15,
+    "p75": 25,
+    "min": 12,
+    "max": 46
+   },
+   {
+    "off": 180,
+    "mean": 21,
+    "p25": 15,
+    "p75": 28,
+    "min": 10,
+    "max": 34
+   }
+  ],
+  "occupancy": [
+   {
+    "off": -480,
+    "mean": 593.9,
+    "p25": 328,
+    "p75": 786,
+    "min": 144,
+    "max": 979
+   },
+   {
+    "off": -470,
+    "mean": 604.8,
+    "p25": 363,
+    "p75": 820,
+    "min": 149,
+    "max": 942
+   },
+   {
+    "off": -460,
+    "mean": 612.9,
+    "p25": 393,
+    "p75": 839,
+    "min": 168,
+    "max": 929
+   },
+   {
+    "off": -450,
+    "mean": 643.8,
+    "p25": 456,
+    "p75": 825,
+    "min": 188,
+    "max": 966
+   },
+   {
+    "off": -440,
+    "mean": 674.8,
+    "p25": 493,
+    "p75": 830,
+    "min": 234,
+    "max": 1004
+   },
+   {
+    "off": -430,
+    "mean": 708.4,
+    "p25": 549,
+    "p75": 853,
+    "min": 288,
+    "max": 1054
+   },
+   {
+    "off": -420,
+    "mean": 728.4,
+    "p25": 607,
+    "p75": 874,
+    "min": 326,
+    "max": 1049
+   },
+   {
+    "off": -410,
+    "mean": 729.1,
+    "p25": 654,
+    "p75": 890,
+    "min": 347,
+    "max": 1038
+   },
+   {
+    "off": -400,
+    "mean": 721.7,
+    "p25": 643,
+    "p75": 917,
+    "min": 354,
+    "max": 1008
+   },
+   {
+    "off": -390,
+    "mean": 731.6,
+    "p25": 612,
+    "p75": 939,
+    "min": 367,
+    "max": 1026
+   },
+   {
+    "off": -380,
+    "mean": 745.3,
+    "p25": 590,
+    "p75": 941,
+    "min": 390,
+    "max": 1043
+   },
+   {
+    "off": -370,
+    "mean": 769.8,
+    "p25": 613,
+    "p75": 966,
+    "min": 434,
+    "max": 1039
+   },
+   {
+    "off": -360,
+    "mean": 783,
+    "p25": 608,
+    "p75": 976,
+    "min": 464,
+    "max": 1037
+   },
+   {
+    "off": -350,
+    "mean": 781.9,
+    "p25": 678,
+    "p75": 963,
+    "min": 484,
+    "max": 1000
+   },
+   {
+    "off": -340,
+    "mean": 770.1,
+    "p25": 660,
+    "p75": 930,
+    "min": 496,
+    "max": 966
+   },
+   {
+    "off": -330,
+    "mean": 766,
+    "p25": 643,
+    "p75": 913,
+    "min": 513,
+    "max": 956
+   },
+   {
+    "off": -320,
+    "mean": 772.9,
+    "p25": 676,
+    "p75": 902,
+    "min": 512,
+    "max": 942
+   },
+   {
+    "off": -310,
+    "mean": 762.8,
+    "p25": 640,
+    "p75": 842,
+    "min": 527,
+    "max": 959
+   },
+   {
+    "off": -300,
+    "mean": 767.9,
+    "p25": 628,
+    "p75": 873,
+    "min": 571,
+    "max": 967
+   },
+   {
+    "off": -290,
+    "mean": 762.7,
+    "p25": 612,
+    "p75": 893,
+    "min": 611,
+    "max": 933
+   },
+   {
+    "off": -280,
+    "mean": 765.1,
+    "p25": 627,
+    "p75": 884,
+    "min": 618,
+    "max": 907
+   },
+   {
+    "off": -270,
+    "mean": 781.2,
+    "p25": 638,
+    "p75": 888,
+    "min": 617,
+    "max": 916
+   },
+   {
+    "off": -260,
+    "mean": 795.1,
+    "p25": 659,
+    "p75": 897,
+    "min": 634,
+    "max": 929
+   },
+   {
+    "off": -250,
+    "mean": 810,
+    "p25": 685,
+    "p75": 888,
+    "min": 671,
+    "max": 979
+   },
+   {
+    "off": -240,
+    "mean": 815.1,
+    "p25": 698,
+    "p75": 898,
+    "min": 669,
+    "max": 1001
+   },
+   {
+    "off": -230,
+    "mean": 819,
+    "p25": 731,
+    "p75": 889,
+    "min": 667,
+    "max": 1041
+   },
+   {
+    "off": -220,
+    "mean": 830.2,
+    "p25": 754,
+    "p75": 898,
+    "min": 648,
+    "max": 1094
+   },
+   {
+    "off": -210,
+    "mean": 844,
+    "p25": 767,
+    "p75": 944,
+    "min": 651,
+    "max": 1134
+   },
+   {
+    "off": -200,
+    "mean": 860.8,
+    "p25": 804,
+    "p75": 951,
+    "min": 632,
+    "max": 1172
+   },
+   {
+    "off": -190,
+    "mean": 879.6,
+    "p25": 773,
+    "p75": 978,
+    "min": 620,
+    "max": 1205
+   },
+   {
+    "off": -180,
+    "mean": 891.4,
+    "p25": 788,
+    "p75": 991,
+    "min": 647,
+    "max": 1233
+   },
+   {
+    "off": -170,
+    "mean": 905.4,
+    "p25": 777,
+    "p75": 977,
+    "min": 633,
+    "max": 1295
+   },
+   {
+    "off": -160,
+    "mean": 918.4,
+    "p25": 787,
+    "p75": 992,
+    "min": 666,
+    "max": 1312
+   },
+   {
+    "off": -150,
+    "mean": 932.7,
+    "p25": 813,
+    "p75": 983,
+    "min": 682,
+    "max": 1355
+   },
+   {
+    "off": -140,
+    "mean": 964.1,
+    "p25": 836,
+    "p75": 1013,
+    "min": 701,
+    "max": 1399
+   },
+   {
+    "off": -130,
+    "mean": 977.4,
+    "p25": 886,
+    "p75": 973,
+    "min": 706,
+    "max": 1403
+   },
+   {
+    "off": -120,
+    "mean": 997.9,
+    "p25": 897,
+    "p75": 987,
+    "min": 700,
+    "max": 1435
+   },
+   {
+    "off": -110,
+    "mean": 1017,
+    "p25": 886,
+    "p75": 1016,
+    "min": 715,
+    "max": 1494
+   },
+   {
+    "off": -100,
+    "mean": 1036.9,
+    "p25": 880,
+    "p75": 1032,
+    "min": 725,
+    "max": 1567
+   },
+   {
+    "off": -90,
+    "mean": 1058.9,
+    "p25": 813,
+    "p75": 1077,
+    "min": 717,
+    "max": 1661
+   },
+   {
+    "off": -80,
+    "mean": 1088,
+    "p25": 787,
+    "p75": 1084,
+    "min": 761,
+    "max": 1760
+   },
+   {
+    "off": -70,
+    "mean": 1117.6,
+    "p25": 816,
+    "p75": 1115,
+    "min": 776,
+    "max": 1844
+   },
+   {
+    "off": -60,
+    "mean": 1142,
+    "p25": 849,
+    "p75": 1131,
+    "min": 781,
+    "max": 1918
+   },
+   {
+    "off": -50,
+    "mean": 1163.2,
+    "p25": 908,
+    "p75": 1155,
+    "min": 748,
+    "max": 1978
+   },
+   {
+    "off": -40,
+    "mean": 1161.8,
+    "p25": 865,
+    "p75": 1144,
+    "min": 685,
+    "max": 2019
+   },
+   {
+    "off": -30,
+    "mean": 1166.3,
+    "p25": 848,
+    "p75": 1164,
+    "min": 629,
+    "max": 2105
+   },
+   {
+    "off": -20,
+    "mean": 1173.7,
+    "p25": 858,
+    "p75": 1152,
+    "min": 598,
+    "max": 2182
+   },
+   {
+    "off": -10,
+    "mean": 1147,
+    "p25": 802,
+    "p75": 1114,
+    "min": 572,
+    "max": 2213
+   },
+   {
+    "off": 0,
+    "mean": 1116.2,
+    "p25": 745,
+    "p75": 1118,
+    "min": 526,
+    "max": 2192
+   },
+   {
+    "off": 10,
+    "mean": 1089.1,
+    "p25": 705,
+    "p75": 1112,
+    "min": 473,
+    "max": 2155
+   },
+   {
+    "off": 20,
+    "mean": 1060,
+    "p25": 684,
+    "p75": 1057,
+    "min": 428,
+    "max": 2108
+   },
+   {
+    "off": 30,
+    "mean": 1051.4,
+    "p25": 694,
+    "p75": 1079,
+    "min": 401,
+    "max": 2084
+   },
+   {
+    "off": 40,
+    "mean": 1037.4,
+    "p25": 696,
+    "p75": 1079,
+    "min": 386,
+    "max": 2046
+   },
+   {
+    "off": 50,
+    "mean": 1011.6,
+    "p25": 702,
+    "p75": 1052,
+    "min": 373,
+    "max": 2023
+   },
+   {
+    "off": 60,
+    "mean": 987.2,
+    "p25": 691,
+    "p75": 1037,
+    "min": 352,
+    "max": 1988
+   },
+   {
+    "off": 70,
+    "mean": 958.9,
+    "p25": 680,
+    "p75": 984,
+    "min": 344,
+    "max": 1973
+   },
+   {
+    "off": 80,
+    "mean": 937.4,
+    "p25": 682,
+    "p75": 939,
+    "min": 339,
+    "max": 1936
+   },
+   {
+    "off": 90,
+    "mean": 926.1,
+    "p25": 679,
+    "p75": 909,
+    "min": 341,
+    "max": 1921
+   },
+   {
+    "off": 100,
+    "mean": 922.7,
+    "p25": 678,
+    "p75": 900,
+    "min": 343,
+    "max": 1893
+   },
+   {
+    "off": 110,
+    "mean": 908.7,
+    "p25": 679,
+    "p75": 945,
+    "min": 335,
+    "max": 1769
+   },
+   {
+    "off": 120,
+    "mean": 893,
+    "p25": 676,
+    "p75": 932,
+    "min": 336,
+    "max": 1664
+   },
+   {
+    "off": 130,
+    "mean": 880.2,
+    "p25": 658,
+    "p75": 886,
+    "min": 338,
+    "max": 1624
+   },
+   {
+    "off": 140,
+    "mean": 867.7,
+    "p25": 663,
+    "p75": 813,
+    "min": 341,
+    "max": 1575
+   },
+   {
+    "off": 150,
+    "mean": 852.4,
+    "p25": 595,
+    "p75": 816,
+    "min": 335,
+    "max": 1542
+   },
+   {
+    "off": 160,
+    "mean": 814.9,
+    "p25": 505,
+    "p75": 814,
+    "min": 334,
+    "max": 1508
+   },
+   {
+    "off": 170,
+    "mean": 773.6,
+    "p25": 474,
+    "p75": 823,
+    "min": 338,
+    "max": 1446
+   },
+   {
+    "off": 180,
+    "mean": 734.6,
+    "p25": 469,
+    "p75": 822,
+    "min": 273,
+    "max": 1398
+   }
+  ]
+ },
+ "arrival_table": [
+  {
+   "from_min": 240,
+   "to_min": 210,
+   "dropoff": {
+    "median": 0.47,
+    "min": 0.34,
+    "max": 0.75,
+    "p25": 0.38,
+    "p75": 0.67
+   },
+   "entries": {
+    "median": 0.55,
+    "min": 0.43,
+    "max": 0.9,
+    "p25": 0.53,
+    "p75": 0.59
+   },
+   "parked": {
+    "median": 0.76,
+    "min": 0.4,
+    "max": 0.89,
+    "p25": 0.69,
+    "p75": 0.8
+   }
+  },
+  {
+   "from_min": 210,
+   "to_min": 180,
+   "dropoff": {
+    "median": 0.5,
+    "min": 0.32,
+    "max": 0.89,
+    "p25": 0.45,
+    "p75": 0.76
+   },
+   "entries": {
+    "median": 0.61,
+    "min": 0.45,
+    "max": 0.97,
+    "p25": 0.6,
+    "p75": 0.69
+   },
+   "parked": {
+    "median": 0.73,
+    "min": 0.45,
+    "max": 0.93,
+    "p25": 0.69,
+    "p75": 0.87
+   }
+  },
+  {
+   "from_min": 180,
+   "to_min": 150,
+   "dropoff": {
+    "median": 0.47,
+    "min": 0.32,
+    "max": 1.0,
+    "p25": 0.39,
+    "p75": 0.74
+   },
+   "entries": {
+    "median": 0.59,
+    "min": 0.44,
+    "max": 0.92,
+    "p25": 0.56,
+    "p75": 0.82
+   },
+   "parked": {
+    "median": 0.81,
+    "min": 0.5,
+    "max": 0.95,
+    "p25": 0.65,
+    "p75": 0.88
+   }
+  },
+  {
+   "from_min": 150,
+   "to_min": 120,
+   "dropoff": {
+    "median": 0.58,
+    "min": 0.39,
+    "max": 0.92,
+    "p25": 0.48,
+    "p75": 0.77
+   },
+   "entries": {
+    "median": 0.73,
+    "min": 0.58,
+    "max": 0.95,
+    "p25": 0.63,
+    "p75": 0.77
+   },
+   "parked": {
+    "median": 0.84,
+    "min": 0.57,
+    "max": 0.99,
+    "p25": 0.75,
+    "p75": 0.9
+   }
+  },
+  {
+   "from_min": 120,
+   "to_min": 90,
+   "dropoff": {
+    "median": 0.63,
+    "min": 0.52,
+    "max": 1.0,
+    "p25": 0.57,
+    "p75": 0.95
+   },
+   "entries": {
+    "median": 0.78,
+    "min": 0.65,
+    "max": 0.95,
+    "p25": 0.71,
+    "p75": 0.82
+   },
+   "parked": {
+    "median": 0.87,
+    "min": 0.67,
+    "max": 0.99,
+    "p25": 0.79,
+    "p75": 0.88
+   }
+  },
+  {
+   "from_min": 90,
+   "to_min": 60,
+   "dropoff": {
+    "median": 0.78,
+    "min": 0.64,
+    "max": 0.95,
+    "p25": 0.7,
+    "p75": 0.83
+   },
+   "entries": {
+    "median": 0.83,
+    "min": 0.71,
+    "max": 0.99,
+    "p25": 0.75,
+    "p75": 0.85
+   },
+   "parked": {
+    "median": 0.87,
+    "min": 0.76,
+    "max": 0.97,
+    "p25": 0.87,
+    "p75": 0.94
+   }
+  },
+  {
+   "from_min": 60,
+   "to_min": 30,
+   "dropoff": {
+    "median": 0.93,
+    "min": 0.69,
+    "max": 1.0,
+    "p25": 0.86,
+    "p75": 1.0
+   },
+   "entries": {
+    "median": 0.94,
+    "min": 0.55,
+    "max": 1.0,
+    "p25": 0.7,
+    "p75": 0.97
+   },
+   "parked": {
+    "median": 0.95,
+    "min": 0.81,
+    "max": 0.98,
+    "p25": 0.92,
+    "p75": 0.96
+   }
+  },
+  {
+   "from_min": 30,
+   "to_min": 0,
+   "dropoff": {
+    "median": 0.83,
+    "min": 0.66,
+    "max": 0.87,
+    "p25": 0.72,
+    "p75": 0.85
+   },
+   "entries": {
+    "median": 0.69,
+    "min": 0.46,
+    "max": 0.87,
+    "p25": 0.51,
+    "p75": 0.77
+   },
+   "parked": {
+    "median": 0.98,
+    "min": 0.66,
+    "max": 1.0,
+    "p25": 0.86,
+    "p75": 0.99
+   }
+  }
+ ],
+ "base_curves": {
+  "평일": {
+   "n": 22,
+   "has_show_days": false,
+   "occupancy": [
+    56,
+    55,
+    55,
+    55,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    54,
+    55,
+    54,
+    54,
+    55,
+    55,
+    56,
+    56,
+    57,
+    57,
+    59,
+    64,
+    67,
+    70,
+    75,
+    87,
+    110,
+    149,
+    219,
+    320,
+    401,
+    443,
+    474,
+    514,
+    575,
+    622,
+    620,
+    555,
+    511,
+    487,
+    484,
+    488,
+    490,
+    474,
+    469,
+    489,
+    554,
+    634,
+    691,
+    732,
+    776,
+    828,
+    881,
+    933,
+    944,
+    945,
+    938,
+    932,
+    960,
+    994,
+    990,
+    954,
+    907,
+    850,
+    812,
+    790,
+    768,
+    727,
+    677,
+    634,
+    625,
+    609,
+    589,
+    587,
+    604,
+    634,
+    665,
+    689,
+    700,
+    700,
+    699,
+    710,
+    718,
+    730,
+    737,
+    724,
+    704,
+    694,
+    697,
+    702,
+    683,
+    658,
+    624,
+    600,
+    598,
+    598,
+    587,
+    560,
+    534,
+    527,
+    537,
+    551,
+    557,
+    549,
+    526,
+    528,
+    553,
+    575,
+    584,
+    581,
+    573,
+    582,
+    616,
+    641,
+    644,
+    622,
+    591,
+    592,
+    616,
+    634,
+    612,
+    555,
+    466,
+    411,
+    375,
+    339,
+    292,
+    213,
+    138,
+    96,
+    84,
+    77,
+    72,
+    67,
+    65,
+    64,
+    62,
+    62
+   ],
+   "entries": [
+    1.2,
+    1.9,
+    1.1,
+    1.7,
+    1.5,
+    1.2,
+    1.0,
+    0.8,
+    1.1,
+    1.0,
+    1.1,
+    0.9,
+    0.9,
+    1.2,
+    0.8,
+    0.9,
+    0.7,
+    0.7,
+    0.7,
+    0.9,
+    1.3,
+    1.1,
+    1.6,
+    2.0,
+    1.1,
+    1.9,
+    5.4,
+    4,
+    3.9,
+    6.5,
+    12.0,
+    21.0,
+    43.2,
+    69.5,
+    105,
+    88.9,
+    52.9,
+    38.2,
+    44.7,
+    68.8,
+    77.5,
+    75.7,
+    51.6,
+    37.9,
+    37.5,
+    43.2,
+    53.5,
+    63.5,
+    79.3,
+    107.7,
+    127.4,
+    149.8,
+    168.9,
+    124.4,
+    87.5,
+    92.6,
+    95.6,
+    98.9,
+    94.9,
+    77.5,
+    62.6,
+    74.7,
+    86.8,
+    101.5,
+    99.4,
+    72.6,
+    53.3,
+    49.6,
+    47.6,
+    49.3,
+    48.1,
+    46.2,
+    48.1,
+    51.6,
+    54.7,
+    67.2,
+    63.5,
+    57.5,
+    55.9,
+    75.7,
+    92.6,
+    91.4,
+    83.6,
+    65.2,
+    57.9,
+    61.7,
+    68.7,
+    62.8,
+    59,
+    53.7,
+    46.7,
+    51.2,
+    63.5,
+    68,
+    80.3,
+    58.9,
+    50.3,
+    46.7,
+    53.7,
+    65,
+    71.3,
+    56.5,
+    60.9,
+    67.0,
+    74.2,
+    81.6,
+    80,
+    73.6,
+    78.6,
+    77.5,
+    83.9,
+    95.8,
+    83.3,
+    74.8,
+    63.1,
+    68.6,
+    73.5,
+    84.9,
+    74.7,
+    60.6,
+    47.8,
+    58.0,
+    64.3,
+    75.4,
+    68.8,
+    47.2,
+    28.9,
+    21.5,
+    15.5,
+    13.6,
+    12.3,
+    15.4,
+    10.0,
+    7.9,
+    5.5,
+    4.5,
+    3.9,
+    2.9,
+    2.2,
+    2.5,
+    2.1,
+    2.4,
+    2,
+    2.1
+   ]
+  },
+  "토": {
+   "n": 4,
+   "has_show_days": true,
+   "occupancy": [
+    102,
+    100,
+    100,
+    98,
+    96,
+    97,
+    96,
+    97,
+    96,
+    96,
+    95,
+    94,
+    95,
+    94,
+    93,
+    93,
+    94,
+    93,
+    94,
+    92,
+    92,
+    92,
+    92,
+    93,
+    93,
+    94,
+    94,
+    93,
+    94,
+    95,
+    95,
+    97,
+    98,
+    100,
+    102,
+    112,
+    123,
+    132,
+    142,
+    155,
+    173,
+    188,
+    184,
+    173,
+    190,
+    207,
+    222,
+    233,
+    250,
+    260,
+    297,
+    345,
+    416,
+    510,
+    582,
+    622,
+    659,
+    699,
+    751,
+    797,
+    836,
+    854,
+    859,
+    900,
+    936,
+    971,
+    982,
+    960,
+    932,
+    927,
+    933,
+    939,
+    944,
+    913,
+    876,
+    845,
+    838,
+    778,
+    757,
+    740,
+    745,
+    782,
+    802,
+    853,
+    876,
+    902,
+    925,
+    950,
+    972,
+    998,
+    1008,
+    1024,
+    1032,
+    1041,
+    1067,
+    1066,
+    1074,
+    1088,
+    1120,
+    1159,
+    1199,
+    1224,
+    1243,
+    1241,
+    1204,
+    1186,
+    1181,
+    1133,
+    1078,
+    1031,
+    1002,
+    986,
+    966,
+    928,
+    901,
+    883,
+    880,
+    877,
+    871,
+    874,
+    874,
+    874,
+    880,
+    841,
+    762,
+    668,
+    608,
+    555,
+    486,
+    396,
+    318,
+    251,
+    201,
+    151,
+    122,
+    108,
+    99,
+    89,
+    75,
+    70,
+    66,
+    64,
+    64,
+    60
+   ],
+   "entries": [
+    3.5,
+    2.8,
+    2.5,
+    2.5,
+    3.5,
+    2,
+    2.2,
+    1.8,
+    1.8,
+    1,
+    0.2,
+    1.5,
+    0.5,
+    0.8,
+    1,
+    1.8,
+    0,
+    0.5,
+    0.2,
+    1,
+    1.2,
+    1,
+    1,
+    1.5,
+    0.2,
+    1.5,
+    1,
+    1.5,
+    2.2,
+    2,
+    2.2,
+    2.8,
+    4.8,
+    5.2,
+    12.5,
+    12.2,
+    15.8,
+    13,
+    14.5,
+    25.2,
+    22,
+    29.5,
+    16.5,
+    33.8,
+    35.2,
+    33.8,
+    30.5,
+    38.5,
+    36,
+    48.5,
+    75.5,
+    102,
+    121,
+    128.8,
+    84.8,
+    87.2,
+    88.2,
+    101.8,
+    97.2,
+    101,
+    102,
+    109.2,
+    121,
+    113.2,
+    110,
+    97,
+    78.8,
+    75.2,
+    95.8,
+    91.8,
+    87,
+    102,
+    81.5,
+    79,
+    68.5,
+    85.8,
+    86.8,
+    91.8,
+    77,
+    97,
+    119.8,
+    109.5,
+    117.5,
+    107.2,
+    95.5,
+    82.5,
+    90.2,
+    90.8,
+    93.2,
+    97.2,
+    96.2,
+    100.2,
+    112.2,
+    104.2,
+    128.5,
+    119.5,
+    122.2,
+    134.5,
+    141,
+    144,
+    131.5,
+    121.5,
+    111.2,
+    101,
+    88.8,
+    87.8,
+    79.5,
+    55.2,
+    48.8,
+    52.8,
+    44.8,
+    41.8,
+    42.8,
+    36,
+    25.8,
+    31.2,
+    31.5,
+    30.5,
+    32.5,
+    38.5,
+    33,
+    41.2,
+    44,
+    50.5,
+    49.5,
+    47.2,
+    34.8,
+    34.5,
+    30.5,
+    30.8,
+    20.5,
+    21.8,
+    19.2,
+    17,
+    10,
+    9.8,
+    6.2,
+    4.8,
+    2.5,
+    2.8,
+    6.5,
+    6.5,
+    3.2,
+    1.8
+   ]
+  },
+  "일": {
+   "n": 4,
+   "has_show_days": true,
+   "occupancy": [
+    60,
+    61,
+    61,
+    60,
+    61,
+    59,
+    58,
+    57,
+    56,
+    57,
+    57,
+    58,
+    58,
+    58,
+    57,
+    56,
+    57,
+    56,
+    57,
+    56,
+    56,
+    57,
+    58,
+    57,
+    57,
+    58,
+    59,
+    60,
+    60,
+    63,
+    64,
+    64,
+    64,
+    64,
+    69,
+    78,
+    88,
+    91,
+    97,
+    107,
+    117,
+    137,
+    118,
+    117,
+    124,
+    133,
+    134,
+    154,
+    160,
+    161,
+    176,
+    199,
+    236,
+    281,
+    324,
+    359,
+    384,
+    429,
+    465,
+    520,
+    564,
+    605,
+    642,
+    685,
+    705,
+    742,
+    766,
+    777,
+    766,
+    766,
+    776,
+    790,
+    794,
+    785,
+    772,
+    760,
+    752,
+    720,
+    718,
+    715,
+    744,
+    769,
+    807,
+    840,
+    864,
+    892,
+    922,
+    950,
+    980,
+    1021,
+    1060,
+    1102,
+    1114,
+    1148,
+    1167,
+    1154,
+    1164,
+    1184,
+    1205,
+    1216,
+    1225,
+    1222,
+    1214,
+    1177,
+    1138,
+    1103,
+    1086,
+    1060,
+    1036,
+    1012,
+    988,
+    980,
+    968,
+    927,
+    868,
+    836,
+    793,
+    769,
+    734,
+    711,
+    692,
+    643,
+    579,
+    507,
+    437,
+    383,
+    342,
+    294,
+    248,
+    238,
+    227,
+    185,
+    160,
+    140,
+    124,
+    114,
+    107,
+    104,
+    100,
+    95,
+    92,
+    89,
+    87,
+    83
+   ],
+   "entries": [
+    3,
+    2.2,
+    0.8,
+    1.5,
+    1,
+    1,
+    0.8,
+    0.5,
+    1.8,
+    2.5,
+    2,
+    1,
+    0.5,
+    1.2,
+    0.5,
+    0.8,
+    0.5,
+    0.8,
+    0.5,
+    0.2,
+    0.8,
+    1,
+    0.8,
+    0,
+    1,
+    1,
+    1.5,
+    1.2,
+    2.8,
+    1.8,
+    2.2,
+    2.5,
+    2.5,
+    6,
+    11.2,
+    14,
+    9.5,
+    9.2,
+    15,
+    14,
+    25.2,
+    25.8,
+    26.2,
+    18.5,
+    19,
+    19,
+    33.2,
+    31.2,
+    26,
+    34.5,
+    45.8,
+    60,
+    73,
+    86.2,
+    66,
+    58,
+    84.5,
+    81.5,
+    98.5,
+    96.5,
+    90.8,
+    92.8,
+    111.8,
+    91,
+    107.2,
+    93.8,
+    71,
+    62.8,
+    74.8,
+    82.5,
+    80,
+    73.5,
+    68,
+    79.8,
+    69.8,
+    72.2,
+    81.5,
+    90.2,
+    96,
+    117.2,
+    118.5,
+    121,
+    129,
+    101.8,
+    91.8,
+    99.2,
+    104.8,
+    105.5,
+    117.5,
+    132,
+    132,
+    130,
+    126.5,
+    118,
+    126.2,
+    115,
+    108.5,
+    115.8,
+    110.5,
+    104,
+    93,
+    59.5,
+    50,
+    49.8,
+    44,
+    45.5,
+    46.2,
+    44.5,
+    40.5,
+    41.5,
+    39,
+    43.5,
+    51.8,
+    44.2,
+    44.2,
+    44,
+    50.5,
+    47.5,
+    47.5,
+    52,
+    45.2,
+    47.5,
+    42.2,
+    36.2,
+    33.2,
+    30.8,
+    21.5,
+    18.2,
+    24.8,
+    28.2,
+    17.2,
+    15.5,
+    12.5,
+    9,
+    10.5,
+    8.5,
+    7.8,
+    5.8,
+    4.8,
+    4.8,
+    3.8,
+    5.2,
+    9,
+    3.2
+   ]
+  }
+ },
+ "daily": [
+  {
+   "date": "2024-07-01",
+   "weekday": "월",
+   "entries": 7131,
+   "max_occ": 972,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-02",
+   "weekday": "화",
+   "entries": 6594,
+   "max_occ": 938,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-03",
+   "weekday": "수",
+   "entries": 6987,
+   "max_occ": 1019,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-04",
+   "weekday": "목",
+   "entries": 6974,
+   "max_occ": 987,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-05",
+   "weekday": "금",
+   "entries": 6832,
+   "max_occ": 1012,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-06",
+   "weekday": "토",
+   "entries": 6253,
+   "max_occ": 948,
+   "max_occ_at": "17:00",
+   "show": [
+    "올림픽홀 19:00",
+    "핸드볼경기장 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-07",
+   "weekday": "일",
+   "entries": 4984,
+   "max_occ": 907,
+   "max_occ_at": "16:10",
+   "show": [
+    "올림픽홀 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-08",
+   "weekday": "월",
+   "entries": 6779,
+   "max_occ": 1000,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-09",
+   "weekday": "화",
+   "entries": 7239,
+   "max_occ": 1055,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-10",
+   "weekday": "수",
+   "entries": 6951,
+   "max_occ": 974,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-11",
+   "weekday": "목",
+   "entries": 7215,
+   "max_occ": 995,
+   "max_occ_at": "10:10",
+   "show": []
+  },
+  {
+   "date": "2024-07-12",
+   "weekday": "금",
+   "entries": 8615,
+   "max_occ": 992,
+   "max_occ_at": "10:50",
+   "show": [
+    "KSPO DOME 19:00"
+   ]
+  },
+  {
+   "date": "2024-07-13",
+   "weekday": "토",
+   "entries": 7630,
+   "max_occ": 1130,
+   "max_occ_at": "16:40",
+   "show": [
+    "KSPO DOME 17:00",
+    "올림픽홀 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-14",
+   "weekday": "일",
+   "entries": 6573,
+   "max_occ": 916,
+   "max_occ_at": "15:40",
+   "show": [
+    "KSPO DOME 16:00",
+    "올림픽홀 16:00"
+   ]
+  },
+  {
+   "date": "2024-07-15",
+   "weekday": "월",
+   "entries": 7103,
+   "max_occ": 1059,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-16",
+   "weekday": "화",
+   "entries": 6676,
+   "max_occ": 1039,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-17",
+   "weekday": "수",
+   "entries": 6499,
+   "max_occ": 977,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-18",
+   "weekday": "목",
+   "entries": 6438,
+   "max_occ": 956,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-19",
+   "weekday": "금",
+   "entries": 7327,
+   "max_occ": 1078,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-20",
+   "weekday": "토",
+   "entries": 7914,
+   "max_occ": 2022,
+   "max_occ_at": "17:40",
+   "show": [
+    "KSPO DOME 18:00",
+    "올림픽홀 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-21",
+   "weekday": "일",
+   "entries": 7797,
+   "max_occ": 2213,
+   "max_occ_at": "16:50",
+   "show": [
+    "KSPO DOME 17:00",
+    "올림픽홀 16:00"
+   ]
+  },
+  {
+   "date": "2024-07-22",
+   "weekday": "월",
+   "entries": 6812,
+   "max_occ": 963,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-23",
+   "weekday": "화",
+   "entries": 6650,
+   "max_occ": 932,
+   "max_occ_at": "10:10",
+   "show": []
+  },
+  {
+   "date": "2024-07-24",
+   "weekday": "수",
+   "entries": 6726,
+   "max_occ": 970,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-25",
+   "weekday": "목",
+   "entries": 6741,
+   "max_occ": 991,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-26",
+   "weekday": "금",
+   "entries": 6938,
+   "max_occ": 1034,
+   "max_occ_at": "10:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-27",
+   "weekday": "토",
+   "entries": 7333,
+   "max_occ": 1054,
+   "max_occ_at": "10:50",
+   "show": [
+    "KSPO DOME 18:00"
+   ]
+  },
+  {
+   "date": "2024-07-28",
+   "weekday": "일",
+   "entries": 6918,
+   "max_occ": 1164,
+   "max_occ_at": "15:30",
+   "show": [
+    "KSPO DOME 16:00"
+   ]
+  },
+  {
+   "date": "2024-07-29",
+   "weekday": "월",
+   "entries": 6625,
+   "max_occ": 927,
+   "max_occ_at": "09:50",
+   "show": []
+  },
+  {
+   "date": "2024-07-30",
+   "weekday": "화",
+   "entries": 7143,
+   "max_occ": 1054,
+   "max_occ_at": "11:00",
+   "show": []
+  },
+  {
+   "date": "2024-07-31",
+   "weekday": "수",
+   "entries": 7131,
+   "max_occ": 1089,
+   "max_occ_at": "11:00",
+   "show": []
+  }
+ ],
+ "congestion": {
+  "rows": 699,
+  "days": 92,
+  "time_bug_rows": 699,
+  "event_days_with_record": 48,
+  "hours_before_start": {
+   "min": -4,
+   "median": 5.0,
+   "max": 13
+  },
+  "examples": [
+   {
+    "date": "2025-02-16",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 11,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-02-22",
+    "venue": "KSPO DOME",
+    "start": "15:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-03-01",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2025-03-02",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-03-09",
+    "venue": "KSPO DOME",
+    "start": "20:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-03-15",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 11,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-03-22",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 11,
+    "hours_before_start": 6
+   },
+   {
+    "date": "2025-03-30",
+    "venue": "핸드볼경기장",
+    "start": "13:00",
+    "zones": [
+     "P6"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-04-05",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-04-12",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 9,
+    "hours_before_start": 9
+   },
+   {
+    "date": "2025-04-13",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2025-04-20",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 21,
+    "hours_before_start": -4
+   },
+   {
+    "date": "2025-04-26",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-05-03",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 8
+   },
+   {
+    "date": "2025-05-04",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-05-10",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-05-11",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2025-05-17",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 8
+   },
+   {
+    "date": "2025-05-18",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 9,
+    "hours_before_start": 8
+   },
+   {
+    "date": "2025-05-24",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-05-25",
+    "venue": "KSPO DOME",
+    "start": "17:25",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 16,
+    "hours_before_start": 1
+   },
+   {
+    "date": "2025-06-07",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-06-08",
+    "venue": "KSPO DOME",
+    "start": "16:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 2
+   },
+   {
+    "date": "2025-06-15",
+    "venue": "올림픽홀",
+    "start": "18:00",
+    "zones": [
+     "P2"
+    ],
+    "first_busy_hour": 13,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-06-21",
+    "venue": "올림픽홀",
+    "start": "16:00",
+    "zones": [
+     "P2"
+    ],
+    "first_busy_hour": 17,
+    "hours_before_start": -1
+   },
+   {
+    "date": "2025-06-28",
+    "venue": "올림픽홀",
+    "start": "18:00",
+    "zones": [
+     "P2"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-07-12",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2025-07-13",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-07-26",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-08-02",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-08-03",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 2
+   },
+   {
+    "date": "2025-08-09",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 2
+   },
+   {
+    "date": "2025-08-23",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 8
+   },
+   {
+    "date": "2025-09-13",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-09-28",
+    "venue": "핸드볼경기장",
+    "start": "19:00",
+    "zones": [
+     "P6"
+    ],
+    "first_busy_hour": 11,
+    "hours_before_start": 8
+   },
+   {
+    "date": "2025-10-18",
+    "venue": "올림픽홀",
+    "start": "18:00",
+    "zones": [
+     "P2"
+    ],
+    "first_busy_hour": 12,
+    "hours_before_start": 6
+   },
+   {
+    "date": "2025-10-19",
+    "venue": "올림픽홀",
+    "start": "17:00",
+    "zones": [
+     "P2"
+    ],
+    "first_busy_hour": 11,
+    "hours_before_start": 6
+   },
+   {
+    "date": "2025-10-25",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2025-11-01",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2025-11-09",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2025-11-10",
+    "venue": "KSPO DOME",
+    "start": "19:30",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 5
+   },
+   {
+    "date": "2025-11-30",
+    "venue": "KSPO DOME",
+    "start": "17:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 14,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-12-05",
+    "venue": "KSPO DOME",
+    "start": "20:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 10,
+    "hours_before_start": 10
+   },
+   {
+    "date": "2025-12-25",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2025-12-27",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 3
+   },
+   {
+    "date": "2026-01-10",
+    "venue": "KSPO DOME",
+    "start": "18:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 11,
+    "hours_before_start": 7
+   },
+   {
+    "date": "2026-02-06",
+    "venue": "KSPO DOME",
+    "start": "19:00",
+    "zones": [
+     "P4",
+     "P5"
+    ],
+    "first_busy_hour": 15,
+    "hours_before_start": 4
+   },
+   {
+    "date": "2026-06-06",
+    "venue": "올림픽홀",
+    "start": "13:00",
+    "zones": [
+     "P2"
+    ],
+    "first_busy_hour": 0,
+    "hours_before_start": 13
+   }
+  ]
+ },
+ "perf_en_check": {
+  "rows": 286,
+  "most_common_date": "2024-08-06",
+  "rows_on_that_date": 16
+ }
+}
